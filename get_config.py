@@ -1,5 +1,7 @@
 import tensorflow as tf
 
+FLAGS = tf.flags.FLAGS
+
 
 class SmallConfig(object):
     init_scale = 0.1
@@ -66,7 +68,7 @@ class TestConfig(object):
     rnn_mode = BLOCK
 
 
-def get_config(FLAGS):
+def get_config():
     '''Get model config.'''
     config = None
     if FLAGS.model == 'small':

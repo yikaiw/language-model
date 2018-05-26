@@ -2,6 +2,8 @@ BASIC = 'basic'
 CUDNN = 'cudnn'
 BLOCK = 'block'
 
+FLAGS = tf.flags.FLAGS
+
 
 class PTBInput(object):
     def __init__(self, config, data, name=None):
@@ -12,14 +14,13 @@ class PTBInput(object):
 
 
 class PTBModel(object):
-    def __init__(self, is_training, config, input_, FLAGS):
+    def __init__(self, is_training, config, input_):
         self._is_training = is_training
         self._input = input_
         self._rnn_params = None
         self._cell = None
         self.batch_size = input_.batch_size
         self.num_steps = input_.num_steps
-        self.FLAGS = FLAGS
         size = config.hidden_size
         vocab_size = config.vocab_size
 
@@ -170,7 +171,7 @@ class PTBModel(object):
                 base_variable_scope='Model/RNN')
             tf.add_to_collection(tf.GraphKeys.SAVEABLE_OBJECTS, params_saveable)
         self._cost = tf.get_collection_ref(util.with_prefix(self._name, 'cost'))[0]
-        num_replicas = self.FLAGS.num_gpus if self._name == 'Train' else 1
+        num_replicas = FLAGS.num_gpus if self._name == 'Train' else 1
         self._initial_state = util.import_state_tuples(
             self._initial_state, self._initial_state_name, num_replicas)
         self._final_state = util.import_state_tuples(

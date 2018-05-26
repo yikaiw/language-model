@@ -63,8 +63,8 @@ def main(_):
     raw_data = reader.ptb_raw_data(FLAGS.data_path)
     train_data, valid_data, test_data, _ = raw_data
 
-    config = get_config.get_config(FLAGS)
-    eval_config = get_config.get_config(FLAGS)
+    config = get_config.get_config()
+    eval_config = get_config.get_config()
     eval_config.batch_size = 1
     eval_config.num_steps = 1
 
@@ -74,20 +74,20 @@ def main(_):
         with tf.name_scope('Train'):
             train_input = PTBInput(config=config, data=train_data, name='TrainInput')
             with tf.variable_scope('Model', reuse=None, initializer=initializer):
-                m = PTBModel(is_training=True, config=config, input_=train_input, FLAGS=FLAGS)
+                m = PTBModel(is_training=True, config=config, input_=train_input)
             tf.summary.scalar('Training Loss', m.cost)
             tf.summary.scalar('Learning Rate', m.lr)
 
         with tf.name_scope('Valid'):
             valid_input = PTBInput(config=config, data=valid_data, name='ValidInput')
             with tf.variable_scope('Model', reuse=True, initializer=initializer):
-                mvalid = PTBModel(is_training=False, config=config, input_=valid_input, FLAGS=FLAGS)
+                mvalid = PTBModel(is_training=False, config=config, input_=valid_input)
             tf.summary.scalar('Validation Loss', mvalid.cost)
 
         with tf.name_scope('Test'):
             test_input = PTBInput(config=eval_config, data=test_data, name='TestInput')
             with tf.variable_scope('Model', reuse=True, initializer=initializer):
-                mtest = PTBModel(is_training=False, config=eval_config, input_=test_input, FLAGS=FLAGS)
+                mtest = PTBModel(is_training=False, config=eval_config, input_=test_input)
 
         models = {'Train': m, 'Valid': mvalid, 'Test': mtest}
         for name, model in models.items():

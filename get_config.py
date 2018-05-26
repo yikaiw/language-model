@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-FLAGS = tf.flags.FLAGS
+model = 'small'
 
 
 class SmallConfig(object):
@@ -69,21 +69,20 @@ class TestConfig(object):
 
 
 def get_config():
-    '''Get model config.'''
     config = None
-    if FLAGS.model == 'small':
+    if model == 'small':
         config = SmallConfig()
-    elif FLAGS.model == 'medium':
+    elif model == 'medium':
         config = MediumConfig()
-    elif FLAGS.model == 'large':
+    elif model == 'large':
         config = LargeConfig()
-    elif FLAGS.model == 'test':
+    elif model == 'test':
         config = TestConfig()
     else:
-        raise ValueError('Invalid model: %s', FLAGS.model)
-    if FLAGS.rnn_mode:
-        config.rnn_mode = FLAGS.rnn_mode
-    if FLAGS.num_gpus != 1 or tf.__version__ < '1.3.0' :
+        raise ValueError('Invalid model: %s', model)
+    if rnn_mode:
+        config.rnn_mode = rnn_mode
+    if num_gpus != 1 or tf.__version__ < '1.3.0' :
         config.rnn_mode = BASIC
     return config
 

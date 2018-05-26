@@ -1,2 +1,2 @@
 # language-model
-Language model with RNN.
+Language model with RNNs.

@@ -1,16 +1,7 @@
-/gradle/wrapper/gradle-wrapper.properties
-##----------Android----------
-# build
-*.apk
-*.ap_
-*.dex
-*.class
-
-##----------dir----------
 bin/
 gen/
 build/
-# data/
+#data/
 checkpoints/
 logs/
 tfrecord/
@@ -19,20 +10,5 @@ __pycache__/
 try.py
 *.pyc
 nohup*
-
-# gradle
-.gradle/
-gradle-app.setting
-!gradle-wrapper.jar
-build/
-
-local.properties
-
-##----------idea----------
-*.iml
+*.DS_Store
 .idea/
-*.ipr
-*.iws
-
-# Android Studio Navigation editor temp files
-.navigation/

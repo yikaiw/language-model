@@ -79,3 +79,15 @@ def ptb_producer(raw_data, batch_size, num_steps, name=None):
         y = tf.strided_slice(data, [0, i * num_steps + 1], [batch_size, (i + 1) * num_steps + 1])
         y.set_shape([batch_size, num_steps])
         return x, y
+
+
+# Test reader
+if __name__ == '__main__':
+    path = 'data/reader_test'
+    raw_data = ptb_raw_data(path)
+    train_data, valid_data, test_data, _ = raw_data
+    print(train_data)
+    x, y = ptb_producer(valid_data, 3, 2)
+    with tf.Session() as sess:
+        sess.run(tf.global_variables_initializer())
+        print(sess.run([x, y]))

@@ -24,7 +24,7 @@ def _file_to_word_ids(filename, word_to_id):
     return [word_to_id[word] for word in data if word in word_to_id]
 
 
-def ptb_raw_data(is_training, data_path=None):
+def ptb_raw_data(data_path, state):
     '''Load PTB raw data from data directory "data_path".
     Reads PTB text files, converts strings to integer ids, and performs mini-batching of the inputs.
     The PTB dataset comes from Tomas Mikolov's webpage:
@@ -38,16 +38,20 @@ def ptb_raw_data(is_training, data_path=None):
     '''
     train_path = os.path.join(data_path, 'train.txt')
     word_to_id = _build_vocab(train_path)
-    vocabulary = len(word_to_id)
-    if is_training:
-        valid_path = os.path.join(data_path, 'valid.txt')
+    if state == 'train:
+        vocab_size = len(word_to_id)
         train_data = _file_to_word_ids(train_path, word_to_id)
+        return train_data, vocab_size
+    elif state == 'valid':
+        valid_path = os.path.join(data_path, 'valid.txt')
         valid_data = _file_to_word_ids(valid_path, word_to_id)
-        return train_data, valid_data, vocabulary
-    else:
+        return valid_data
+    elif state == 'test':
         test_path = os.path.join(data_path, 'test.txt')
         test_data = _file_to_word_ids(test_path, word_to_id)
-        return test_data, vocabulary
+        return test_data
+    else:
+        raise Exception('Invalid stage.')
 
 
 def ptb_producer(raw_data, batch_size, step_size, name=None):
@@ -92,7 +96,7 @@ def ptb_iterator(raw_data, batch_size, step_size):
         data[i] = raw_data[batch_len * i: batch_len * (i + 1)]
     epoch_size = (batch_len - 1) // step_size
     if epoch_size == 0:
-        raise ValueError("epoch_size == 0, decrease batch_size or step_size")
+        raise ValueError('epoch_size == 0, decrease batch_size or step_size')
     for i in range(epoch_size):
         x = data[:, i * step_size: (i + 1) * step_size]
         y = data[:, i * step_size + 1: (i + 1) * step_size + 1]

@@ -3,7 +3,7 @@ import tensorflow as tf
 import config
 
 
-class PTBModel:
+class LSTM(object):
     def __init__(self, is_training, is_testing=False):
         if not is_testing:
             self.batch_size = config.batch_size
@@ -55,7 +55,7 @@ class PTBModel:
         softmax_b = tf.get_variable('softmax_b', (vocab_size,), dtype=tf.float32)
         logits = tf.matmul(output, softmax_w) + softmax_b
         
-        #loss函数是average negative log probability, 函数sequence_loss_by_examples实现
+        # average negative log probability loss
         loss = contrib.legacy_seq2seq.sequence_loss_by_example(
             logits=[logits], targets=[tf.reshape(self.targets, [-1])],
             weights=[tf.ones((self.batch_size * self.step_size), dtype=tf.float32)])

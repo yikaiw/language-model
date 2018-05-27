@@ -1,9 +1,12 @@
 import reader
 import tensorflow as tf
+from config import Config
 
 
 class LSTM(object):
-    def __init__(self, config, stage):
+    def __init__(self, config, is_training=True):
+        config = Config(is_training=is_training)
+
         self.batch_size = config.batch_size
         self.step_size = config.step_size
         
@@ -56,8 +59,8 @@ class LSTM(object):
         self.cost = cost = tf.reduce_sum(loss) / self.batch_size
         self.final_state = state
 
-        if stage == 'train':
-            self.lr = tf.Variable(0.0, trainable=False)
+        if is_training:
+            self.lr = tf.Variable(0, trainable=False)
             tvars = tf.trainable_variables()
             
             grads, _ = tf.clip_by_global_norm(tf.gradients(cost, tvars), config.max_grad_norm)

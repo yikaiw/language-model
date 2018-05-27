@@ -24,34 +24,30 @@ def _file_to_word_ids(filename, word_to_id):
     return [word_to_id[word] for word in data if word in word_to_id]
 
 
-def ptb_raw_data(data_path, state):
-    '''Load PTB raw data from data directory "data_path".
-    Reads PTB text files, converts strings to integer ids, and performs mini-batching of the inputs.
+def get_vocab_size(data_path):
+    train_path = os.path.join(data_path, 'train.txt')
+    word_to_id = _build_vocab(train_path)
+    vocab_size = len(word_to_id)
+    return vocab_size
+
+
+def ptb_raw_data(data_path, is_testing=False):
+    '''
+    Reads PTB text files, converts strings to integer ids.
     The PTB dataset comes from Tomas Mikolov's webpage:
     http://www.fit.vutbr.cz/~imikolov/rnnlm/simple-examples.tgz
-    Args:
-        is_training: if is training or not
-        data_path: string path to the directory where simple-examples.tgz has been extracted.
-    Returns:
-        tuple (train_data, valid_data, test_data, vocabulary)
-        where each of the data objects can be passed to PTBIterator.
     '''
     train_path = os.path.join(data_path, 'train.txt')
     word_to_id = _build_vocab(train_path)
-    if state == 'train:
-        vocab_size = len(word_to_id)
+    if not is_testing:
         train_data = _file_to_word_ids(train_path, word_to_id)
-        return train_data, vocab_size
-    elif state == 'valid':
         valid_path = os.path.join(data_path, 'valid.txt')
         valid_data = _file_to_word_ids(valid_path, word_to_id)
-        return valid_data
-    elif state == 'test':
+        return train_data, valid_data
+    else:
         test_path = os.path.join(data_path, 'test.txt')
         test_data = _file_to_word_ids(test_path, word_to_id)
         return test_data
-    else:
-        raise Exception('Invalid stage.')
 
 
 def ptb_producer(raw_data, batch_size, step_size, name=None):
@@ -103,11 +99,8 @@ def ptb_iterator(raw_data, batch_size, step_size):
         yield (x, y)
 
 
-# Test reader
+# Get vocabulary size
 if __name__ == '__main__':
-    path = 'data/reader_test'
-    raw_data = ptb_raw_data(path)
-    train_data, valid_data, test_data, _ = raw_data
-    print(train_data)
-    x, y = ptb_iterator(valid_data, 3, 2)
-    print(x, y)
+    data_path = os.path.join('data', 'ptb')
+    vocab_size = get_vocab_size(data_path)
+    print('Vocabulary size = %d' % vocab_size)

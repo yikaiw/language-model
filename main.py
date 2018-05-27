@@ -15,17 +15,16 @@ def run_epoch(sess, model, data, is_training=True):
     epoch_size = (len(data) // model.batch_size - 1) // model.step_size
     total_cost, iters = 0, 0
     state = sess.run(model.initial_state)
-    op = model.train_op if is_training else tf.no_op()
 
     for step, (x, y) in enumerate(reader.ptb_iterator(data, model.batch_size, model.step_size)):
         cost, state, _ = sess.run(
-            [model.cost, model.final_state, op],
+            [model.cost, model.final_state, model.opt],
             feed_dict={model.input_data: x, model.targets: y, model.initial_state: state})
         total_cost += cost
         iters += model.step_size
         perplexity = np.exp(total_cost / iters)
         if is_training and step % 100 == 0:
-            progress = (step *1.0/ epoch_size) * 100
+            progress = step / epoch_size * 100
             print(' >> Progress %.1f%%: perplexity = %.3f, cost = %.3f' % (progress, perplexity, cost))
 
     return perplexity

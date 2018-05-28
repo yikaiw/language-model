@@ -1,11 +1,14 @@
-import reader
 import tensorflow as tf
 from tensorflow.contrib import rnn
+from datetime import datetime
 from config import Config
+import reader
 
 
 class LSTM(object):
-    def __init__(self, stage='train'):
+    def __init__(self, sess, stage='train'):
+        self.sess = sess
+
         is_training = stage == 'train'
         config = Config(stage == 'test')
 
@@ -38,7 +41,7 @@ class LSTM(object):
         
         state = self.initial_state
         
-        with tf.variable_scope('RNN'):
+        with tf.variable_scope('rnn'):
             for time_step in range(step_size):
                 if time_step > 0:
                     tf.get_variable_scope().reuse_variables()
@@ -58,7 +61,11 @@ class LSTM(object):
             logits=[logits], targets=[targets], 
             weights=[tf.ones([batch_size * step_size], tf.float32)])
         self.loss = tf.reduce_sum(loss) / batch_size
+
         tf.summary.scalar('loss', self.loss)
+        current_time = datetime.now().strftime('%Y%m%d-%H%M')        
+        self.tf_writer = tf.summary.FileWriter('logs/%s_loss@%s' % (stage, current_time), self.sess.graph)
+        self.summary_op = tf.summary.merge_all()
 
         if is_training:
             self.lr = tf.Variable(0, trainable=False, dtype=tf.float32)
@@ -73,5 +80,5 @@ class LSTM(object):
         else:
             self.opt = tf.no_op()
     
-    def assign_lr(self, sess, lr_value):
-        sess.run(self.lr_update, feed_dict={self.new_lr: lr_value})
+    def assign_lr(self, lr_value):
+        self.sess.run(self.lr_update, feed_dict={self.new_lr: lr_value})

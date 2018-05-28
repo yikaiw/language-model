@@ -10,7 +10,7 @@ class Config(object):
         self.vocab_size = 10000
 
         self.learning_rate = 1.0
-        self.lr_decay = 0.9
+        self.lr_decay = 0.8
         self.epoch_start_decay = 10
 
         if is_testing:

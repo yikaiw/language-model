@@ -14,7 +14,7 @@ data_path = os.path.join('data', 'ptb')
 global_step = {'train': 0, 'valid': 0, 'test': 0}
 
 
-def run_epoch(sess, model, data, stage='train'):
+def run_epoch(sess, model, data, stage='train', epoch=None):
     global global_step
     start_time = time.time()
 
@@ -25,15 +25,19 @@ def run_epoch(sess, model, data, stage='train'):
 
     for step, (x, y) in enumerate(ptb_iterator):
         # x, y: [batch_size, step_size]
+        print(x.shape)
         loss, state, _, summary = sess.run(
             [model.loss, model.final_state, model.opt, model.summary_op],
             feed_dict={model.input_data: x, model.targets: y, model.initial_state: state})
+        # loss, state, _ = sess.run(
+        #     [model.loss, model.final_state, model.opt],
+        #     feed_dict={model.input_data: x, model.targets: y, model.initial_state: state})
         total_loss += loss
         iters += model.step_size
         perplexity = np.exp(total_loss / iters)
 
-        global_step[stage] += 1
-        model.tf_writer.add_summary(summary, global_step[stage])
+        # global_step[stage] += 1
+        # model.loss_writer.add_summary(summary, global_step[stage])
 
         progress = step / epoch_size * 100
         if stage == 'train' and (step + 1) % 150 == 0:
@@ -41,7 +45,11 @@ def run_epoch(sess, model, data, stage='train'):
                  % (progress, perplexity, loss, time.time() - start_time))
         elif stage == 'test':
             print('\rProgress = %.1f%%' % progress, end='')
-
+    
+    # if stage != 'test':
+    #     tf.summary.scalar('%s_perplexity' % stage, perplexity)
+    #     summary = sess.run(model.summary_op)
+    #     model.perplexity_writer.add_summary(summary, epoch)
     return perplexity
 
 
@@ -66,10 +74,11 @@ def main(_):
                 train_model.assign_lr(config.learning_rate * lr_decay)
                 print('Epoch %d/%d:' % (epoch, config.epoch_num))
                 print(' >> Learning rate = %.5f' % sess.run(train_model.lr))
-                train_perplexity = run_epoch(sess, train_model, train_data, stage='train')
-                tf.summary.scalar('perplexity', perplexity)
+
+                train_perplexity = run_epoch(sess, train_model, train_data, stage='train', epoch=epoch)
                 print(' >> Train perplexity = %.3f' % train_perplexity)
-                valid_perplexity = run_epoch(sess, valid_model, valid_data, stage='valid')
+
+                valid_perplexity = run_epoch(sess, valid_model, valid_data, stage='valid', epoch=epoch)
                 print(' >> Valid perplexity = %.3f' % valid_perplexity)
 
             saver.save(sess, save_path)

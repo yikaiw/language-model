@@ -61,10 +61,11 @@ class LSTM(object):
             logits=[logits], targets=[targets], 
             weights=[tf.ones([batch_size * step_size], tf.float32)])
         self.loss = tf.reduce_sum(loss) / batch_size
-
         tf.summary.scalar('loss', self.loss)
+
         current_time = datetime.now().strftime('%Y%m%d-%H%M')        
-        self.tf_writer = tf.summary.FileWriter('logs/%s_loss@%s' % (stage, current_time), self.sess.graph)
+        self.loss_writer = tf.summary.FileWriter('logs/%s_loss@%s' % (stage, current_time), self.sess.graph)
+        # self.perplexity_writer = tf.summary.FileWriter('logs/perplexity@%s' % current_time, self.sess.graph)
         self.summary_op = tf.summary.merge_all()
 
         if is_training:

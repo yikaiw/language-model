@@ -42,7 +42,7 @@ def ptb_raw_data(data_path, is_testing=False):
     http://www.fit.vutbr.cz/~imikolov/rnnlm/simple-examples.tgz
     '''
     print('Loading raw data.')
-    train_path = os.path.join(data_path, 'train.txt')
+    train_path = os.path.join(data_path, 'valid.txt')
     word_to_id = _build_vocab(train_path)
     if not is_testing:
         train_data = _file_to_word_ids(train_path, word_to_id)

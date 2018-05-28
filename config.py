@@ -6,11 +6,11 @@ class Config(object):
         self.layer_num = 2
         self.hidden_size = 200  # hidden num for a single LSTM
         self.epoch_num = 30
-        self.keep_prob = 0.8
+        self.keep_prob = 0.5
         self.vocab_size = 10000
 
         self.learning_rate = 1.0
-        self.lr_decay = 0.5
+        self.lr_decay = 0.9
         self.epoch_start_decay = 10
 
         if is_testing:

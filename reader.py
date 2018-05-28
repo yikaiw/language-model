@@ -41,6 +41,7 @@ def ptb_raw_data(data_path, is_testing=False):
     The PTB dataset comes from Tomas Mikolov's webpage:
     http://www.fit.vutbr.cz/~imikolov/rnnlm/simple-examples.tgz
     '''
+    print('Loading raw data.')
     train_path = os.path.join(data_path, 'train.txt')
     word_to_id = _build_vocab(train_path)
     if not is_testing:

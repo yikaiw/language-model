@@ -44,18 +44,21 @@ class LSTM(object):
                     tf.get_variable_scope().reuse_variables()
                 output, state = stacked_lstm(inputs[:, time_step, :], state)
                 outputs.append(output)
+            
+        self.final_state = state
         
         outputs = tf.reshape(tf.concat(outputs, axis=1), [-1, hidden_size])
         softmax_w = tf.get_variable('softmax_w', [hidden_size, vocab_size], dtype=tf.float32)
         softmax_b = tf.get_variable('softmax_b', [vocab_size], dtype=tf.float32)
-        logits = tf.matmul(outputs, softmax_w) + softmax_b
+        logits = tf.matmul(outputs, softmax_w) + softmax_b  # [batch_size * step_size, vocab_size]
+        targets = tf.reshape(self.targets, [-1])  # [batch_size * step_size]
         
         # average negative log probability loss
         loss = tf.contrib.legacy_seq2seq.sequence_loss_by_example(
-            logits=[logits], targets=[tf.reshape(self.targets, [-1])],
+            logits=[logits], targets=[targets], 
             weights=[tf.ones([batch_size * step_size], tf.float32)])
         self.loss = tf.reduce_sum(loss) / batch_size
-        self.final_state = state
+        tf.summary.scalar('loss', self.loss)
 
         if is_training:
             self.lr = tf.Variable(0, trainable=False, dtype=tf.float32)

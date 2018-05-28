@@ -1,8 +1,8 @@
 class Config(object):
-    def __init__(self, is_training=True):
+    def __init__(self, is_testing=False):
         self.init_scale = 0.1
         self.max_grad_norm = 5
-        
+
         self.layer_num = 2
         self.hidden_size = 200  # hidden num for a single LSTM
         self.epoch_num = 30
@@ -13,9 +13,9 @@ class Config(object):
         self.lr_decay = 0.5
         self.epoch_start_decay = 10
 
-        if is_training:
+        if is_testing:
+            self.step_size = 1 
+            self.batch_size = 1
+        else:
             self.step_size = 20  # sequence len
             self.batch_size = 20
-        else:
-            self.step_size = 1
-            self.batch_size = 1

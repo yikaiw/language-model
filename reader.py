@@ -6,8 +6,12 @@ import collections
 
 
 def _read_words(filename):
+    py3 = sys.version_info[0] == 3
     with tf.gfile.GFile(filename, 'r') as f:
-        return f.read().decode('utf-8').replace('\n', '<eos>').split()
+        if py3:
+            return f.read().replace('\n', '<eos>').split()
+        else:
+            return f.read().decode('utf-8').replace('\n', '<eos>').split()
 
 
 def _build_vocab(filename):
@@ -94,8 +98,8 @@ def ptb_iterator(raw_data, batch_size, step_size):
     if epoch_size == 0:
         raise ValueError('epoch_size == 0, decrease batch_size or step_size')
     for i in range(epoch_size):
-        x = data[:, i * step_size: (i + 1) * step_size]
-        y = data[:, i * step_size + 1: (i + 1) * step_size + 1]
+        x = data[:, i * step_size: step_size * (i + 1)]
+        y = data[:, i * step_size + 1: step_size * (i + 1) + 1]
         yield (x, y)
 
 

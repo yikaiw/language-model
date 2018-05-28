@@ -1,11 +1,13 @@
 import reader
 import tensorflow as tf
+from tensorflow.contrib import rnn
 from config import Config
 
 
 class LSTM(object):
-    def __init__(self, config, is_training=True):
-        config = Config(is_training=is_training)
+    def __init__(self, stage='train'):
+        is_training = stage == 'train'
+        config = Config(stage == 'test')
 
         batch_size = self.batch_size = config.batch_size
         step_size = self.step_size = config.step_size
@@ -15,12 +17,12 @@ class LSTM(object):
         self.input_data = tf.placeholder(tf.int32, [batch_size, step_size])
         self.targets = tf.placeholder(tf.int32, [batch_size, step_size])
 
-        lstm_cell = contrib.rnn.BasicLSTMCell(hidden_size, forget_bias=1.0, state_is_tuple=True)
+        lstm_cell = rnn.BasicLSTMCell(hidden_size, forget_bias=1.0, state_is_tuple=True)
         
         if is_training and config.keep_prob < 1:
-            lstm_cell = contrib.rnn.DropoutWrapper(lstm_cell, output_keep_prob=config.keep_prob)
+            lstm_cell = rnn.DropoutWrapper(lstm_cell, output_keep_prob=config.keep_prob)
         
-        stacked_lstm = contrib.rnn.MultiRNNCell([lstm_cell] * config.layer_num, state_is_tuple=True)
+        stacked_lstm = rnn.MultiRNNCell([lstm_cell] * config.layer_num, state_is_tuple=True)
         
         self.initial_state = stacked_lstm.zero_state(batch_size, tf.float32)
 
@@ -43,23 +45,23 @@ class LSTM(object):
                 output, state = stacked_lstm(inputs[:, time_step, :], state)
                 outputs.append(output)
         
-        output = tf.reshape(tf.concat(outputs, axis=1), [-1, hidden_size])
+        outputs = tf.reshape(tf.concat(outputs, axis=1), [-1, hidden_size])
         softmax_w = tf.get_variable('softmax_w', [hidden_size, vocab_size], dtype=tf.float32)
         softmax_b = tf.get_variable('softmax_b', [vocab_size], dtype=tf.float32)
-        logits = tf.matmul(output, softmax_w) + softmax_b
+        logits = tf.matmul(outputs, softmax_w) + softmax_b
         
         # average negative log probability loss
-        loss = contrib.legacy_seq2seq.sequence_loss_by_example(
+        loss = tf.contrib.legacy_seq2seq.sequence_loss_by_example(
             logits=[logits], targets=[tf.reshape(self.targets, [-1])],
             weights=[tf.ones([batch_size * step_size], tf.float32)])
-        self.cost = tf.reduce_sum(loss) / batch_size
+        self.loss = tf.reduce_sum(loss) / batch_size
         self.final_state = state
 
         if is_training:
-            self.lr = tf.Variable(0, trainable=False)
+            self.lr = tf.Variable(0, trainable=False, dtype=tf.float32)
             tvars = tf.trainable_variables()
             
-            grads, _ = tf.clip_by_global_norm(tf.gradients(self.cost, tvars), config.max_grad_norm)
+            grads, _ = tf.clip_by_global_norm(tf.gradients(self.loss, tvars), config.max_grad_norm)
             optimizer = tf.train.GradientDescentOptimizer(learning_rate=self.lr)
             
             self.opt = optimizer.apply_gradients(zip(grads, tvars))
@@ -68,5 +70,5 @@ class LSTM(object):
         else:
             self.opt = tf.no_op()
     
-    def assignlr(self, sess, lr_value):
+    def assign_lr(self, sess, lr_value):
         sess.run(self.lr_update, feed_dict={self.new_lr: lr_value})

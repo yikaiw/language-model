@@ -9,6 +9,6 @@ __pycache__/
 
 try.py
 *.pyc
-nohup*
+#nohup*
 *.DS_Store
 .idea/

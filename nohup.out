@@ -1,0 +1,933 @@
+[I 12:38:09.183 NotebookApp] Writing notebook server cookie secret to /run/user/1000/jupyter/notebook_cookie_secret
+[I 12:38:09.218 NotebookApp] JupyterLab alpha preview extension loaded from /home/wyk/Anaconda/lib/python3.6/site-packages/jupyterlab
+JupyterLab v0.27.0
+Known labextensions:
+[I 12:38:09.219 NotebookApp] Running the core application with no additional extensions or settings
+[I 12:38:09.221 NotebookApp] Serving notebooks from local directory: /home/wyk/Documents/homework/language-model
+[I 12:38:09.221 NotebookApp] 0 active kernels 
+[I 12:38:09.221 NotebookApp] The Jupyter Notebook is running at: http://localhost:8888/?token=e2922c81cb1399276fb5a091bd25d4e746b9c6fe67fb00f3
+[I 12:38:09.221 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 12:38:09.221 NotebookApp] No web browser found: could not locate runnable browser.
+[C 12:38:09.221 NotebookApp] 
+    
+    Copy/paste this URL into your browser when you connect for the first time,
+    to login with a token:
+        http://localhost:8888/?token=e2922c81cb1399276fb5a091bd25d4e746b9c6fe67fb00f3
+2018-05-28 05:20:48.836868: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2018-05-28 05:20:48.836894: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2018-05-28 05:20:48.836898: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2018-05-28 05:20:48.836902: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2018-05-28 05:20:48.836905: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2018-05-28 05:20:48.914901: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:893] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-05-28 05:20:48.915288: I tensorflow/core/common_runtime/gpu/gpu_device.cc:955] Found device 0 with properties: 
+name: GeForce GTX 1080
+major: 6 minor: 1 memoryClockRate (GHz) 1.7335
+pciBusID 0000:01:00.0
+Total memory: 7.93GiB
+Free memory: 7.34GiB
+2018-05-28 05:20:48.915299: I tensorflow/core/common_runtime/gpu/gpu_device.cc:976] DMA: 0 
+2018-05-28 05:20:48.915303: I tensorflow/core/common_runtime/gpu/gpu_device.cc:986] 0:   Y 
+2018-05-28 05:20:48.915309: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1045] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1080, pci bus id: 0000:01:00.0)
+Loading raw data.
+Building model and start training:
+Epoch 0/30:
+ >> Learning rate = 1.00000
+ >> Train progress  6.4%: perplexity = 1198.581, loss = 129.629, used time = 1.92s
+ >> Train progress 12.9%: perplexity = 885.207, loss = 125.418, used time = 3.52s
+ >> Train progress 19.3%: perplexity = 752.888, loss = 127.308, used time = 5.13s
+ >> Train progress 25.8%: perplexity = 667.957, loss = 125.312, used time = 6.74s
+ >> Train progress 32.2%: perplexity = 612.633, loss = 115.665, used time = 8.34s
+ >> Train progress 38.7%: perplexity = 569.359, loss = 116.758, used time = 9.96s
+ >> Train progress 45.2%: perplexity = 536.571, loss = 118.459, used time = 11.57s
+ >> Train progress 51.6%: perplexity = 508.281, loss = 119.271, used time = 13.20s
+ >> Train progress 58.1%: perplexity = 480.804, loss = 110.714, used time = 14.81s
+ >> Train progress 64.5%: perplexity = 459.418, loss = 111.237, used time = 16.42s
+ >> Train progress 71.0%: perplexity = 442.846, loss = 112.835, used time = 18.04s
+ >> Train progress 77.4%: perplexity = 429.122, loss = 110.807, used time = 19.69s
+ >> Train progress 83.9%: perplexity = 414.276, loss = 111.128, used time = 21.30s
+ >> Train progress 90.4%: perplexity = 401.429, loss =  99.818, used time = 22.92s
+ >> Train progress 96.8%: perplexity = 389.027, loss = 120.107, used time = 24.54s
+Traceback (most recent call last):
+  File "main.py", line 94, in <module>
+    tf.app.run()
+  File "/home/wyk/Anaconda/envs/python3/lib/python3.6/site-packages/tensorflow/python/platform/app.py", line 48, in run
+    _sys.exit(main(_sys.argv[:1] + flags_passthrough))
+  File "main.py", line 70, in main
+    tf.summary.scalar('perplexity', perplexity)
+NameError: name 'perplexity' is not defined
+2018-05-28 09:37:40.262553: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2018-05-28 09:37:40.262581: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2018-05-28 09:37:40.262586: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2018-05-28 09:37:40.262590: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2018-05-28 09:37:40.262593: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2018-05-28 09:37:40.342191: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:893] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-05-28 09:37:40.342593: I tensorflow/core/common_runtime/gpu/gpu_device.cc:955] Found device 0 with properties: 
+name: GeForce GTX 1080
+major: 6 minor: 1 memoryClockRate (GHz) 1.7335
+pciBusID 0000:01:00.0
+Total memory: 7.93GiB
+Free memory: 7.34GiB
+2018-05-28 09:37:40.342604: I tensorflow/core/common_runtime/gpu/gpu_device.cc:976] DMA: 0 
+2018-05-28 09:37:40.342608: I tensorflow/core/common_runtime/gpu/gpu_device.cc:986] 0:   Y 
+2018-05-28 09:37:40.342614: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1045] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1080, pci bus id: 0000:01:00.0)
+Loading raw data.
+Building model and start training:
+Epoch 0/12:
+ >> Learning rate = 1.00000
+ >> Train progress  9.6%: perplexity = 1140.496, loss = 201.892, used time =  2.66s
+ >> Train progress 19.3%: perplexity = 856.730, loss = 193.560, used time =  4.93s
+ >> Train progress 29.0%: perplexity = 705.800, loss = 181.894, used time =  7.20s
+ >> Train progress 38.7%: perplexity = 613.357, loss = 171.404, used time =  9.48s
+ >> Train progress 48.4%: perplexity = 549.654, loss = 168.024, used time = 11.76s
+ >> Train progress 58.0%: perplexity = 492.820, loss = 162.665, used time = 14.03s
+ >> Train progress 67.7%: perplexity = 452.015, loss = 167.003, used time = 16.30s
+ >> Train progress 77.4%: perplexity = 422.794, loss = 170.316, used time = 18.57s
+ >> Train progress 87.1%: perplexity = 395.195, loss = 172.065, used time = 20.84s
+ >> Train progress 96.8%: perplexity = 370.181, loss = 174.176, used time = 23.12s
+ >> Train perplexity = 366.057
+ >> Valid perplexity = 216.742
+Epoch 1/12:
+ >> Learning rate = 1.00000
+ >> Train progress  9.6%: perplexity = 202.704, loss = 160.661, used time =  2.31s
+ >> Train progress 19.3%: perplexity = 211.271, loss = 164.147, used time =  4.59s
+ >> Train progress 29.0%: perplexity = 207.293, loss = 161.111, used time =  6.86s
+ >> Train progress 38.7%: perplexity = 204.698, loss = 152.880, used time =  9.14s
+ >> Train progress 48.4%: perplexity = 203.139, loss = 154.532, used time = 11.43s
+ >> Train progress 58.0%: perplexity = 196.871, loss = 147.359, used time = 13.72s
+ >> Train progress 67.7%: perplexity = 193.178, loss = 156.791, used time = 16.00s
+ >> Train progress 77.4%: perplexity = 191.357, loss = 160.125, used time = 18.29s
+ >> Train progress 87.1%: perplexity = 187.076, loss = 161.570, used time = 20.58s
+ >> Train progress 96.8%: perplexity = 182.519, loss = 163.558, used time = 22.88s
+ >> Train perplexity = 182.785
+ >> Valid perplexity = 161.208
+Epoch 2/12:
+ >> Learning rate = 1.00000
+ >> Train progress  9.6%: perplexity = 147.822, loss = 152.751, used time =  2.33s
+ >> Train progress 19.3%: perplexity = 158.072, loss = 155.357, used time =  4.61s
+ >> Train progress 29.0%: perplexity = 156.290, loss = 154.991, used time =  6.90s
+ >> Train progress 38.7%: perplexity = 155.580, loss = 146.690, used time =  9.18s
+ >> Train progress 48.4%: perplexity = 155.912, loss = 147.329, used time = 11.46s
+ >> Train progress 58.0%: perplexity = 152.221, loss = 142.066, used time = 13.75s
+ >> Train progress 67.7%: perplexity = 150.754, loss = 152.315, used time = 16.03s
+ >> Train progress 77.4%: perplexity = 150.730, loss = 155.714, used time = 18.32s
+ >> Train progress 87.1%: perplexity = 148.143, loss = 155.353, used time = 20.61s
+ >> Train progress 96.8%: perplexity = 145.492, loss = 159.316, used time = 22.89s
+ >> Train perplexity = 146.031
+ >> Valid perplexity = 144.346
+Epoch 3/12:
+ >> Learning rate = 1.00000
+ >> Train progress  9.6%: perplexity = 125.921, loss = 147.054, used time =  2.33s
+ >> Train progress 19.3%: perplexity = 135.731, loss = 151.951, used time =  4.62s
+ >> Train progress 29.0%: perplexity = 134.349, loss = 151.899, used time =  6.91s
+ >> Train progress 38.7%: perplexity = 134.064, loss = 143.711, used time =  9.20s
+ >> Train progress 48.4%: perplexity = 134.754, loss = 144.030, used time = 11.48s
+ >> Train progress 58.0%: perplexity = 131.940, loss = 138.247, used time = 13.81s
+ >> Train progress 67.7%: perplexity = 131.220, loss = 148.301, used time = 16.10s
+ >> Train progress 77.4%: perplexity = 131.646, loss = 153.131, used time = 18.39s
+ >> Train progress 87.1%: perplexity = 129.726, loss = 151.212, used time = 20.67s
+ >> Train progress 96.8%: perplexity = 127.779, loss = 156.652, used time = 22.96s
+ >> Train perplexity = 128.391
+ >> Valid perplexity = 134.034
+Epoch 4/12:
+ >> Learning rate = 1.00000
+ >> Train progress  9.6%: perplexity = 113.096, loss = 145.561, used time =  2.32s
+ >> Train progress 19.3%: perplexity = 122.561, loss = 148.664, used time =  4.61s
+ >> Train progress 29.0%: perplexity = 121.629, loss = 148.525, used time =  6.90s
+ >> Train progress 38.7%: perplexity = 121.689, loss = 140.719, used time =  9.20s
+ >> Train progress 48.4%: perplexity = 122.630, loss = 142.878, used time = 11.48s
+ >> Train progress 58.0%: perplexity = 120.331, loss = 137.250, used time = 13.77s
+ >> Train progress 67.7%: perplexity = 119.884, loss = 144.525, used time = 16.06s
+ >> Train progress 77.4%: perplexity = 120.534, loss = 149.184, used time = 18.34s
+ >> Train progress 87.1%: perplexity = 118.866, loss = 150.846, used time = 20.62s
+ >> Train progress 96.8%: perplexity = 117.312, loss = 155.181, used time = 22.91s
+ >> Train perplexity = 117.886
+ >> Valid perplexity = 129.220
+Epoch 5/12:
+ >> Learning rate = 1.00000
+ >> Train progress  9.6%: perplexity = 105.309, loss = 142.839, used time =  2.35s
+ >> Train progress 19.3%: perplexity = 114.617, loss = 146.263, used time =  4.65s
+ >> Train progress 29.0%: perplexity = 113.480, loss = 145.755, used time =  6.93s
+ >> Train progress 38.7%: perplexity = 113.483, loss = 137.440, used time =  9.21s
+ >> Train progress 48.4%: perplexity = 114.371, loss = 139.397, used time = 11.50s
+ >> Train progress 58.0%: perplexity = 112.448, loss = 133.742, used time = 13.79s
+ >> Train progress 67.7%: perplexity = 112.243, loss = 144.367, used time = 16.08s
+ >> Train progress 77.4%: perplexity = 112.936, loss = 148.232, used time = 18.36s
+ >> Train progress 87.1%: perplexity = 111.445, loss = 146.311, used time = 20.65s
+ >> Train progress 96.8%: perplexity = 110.042, loss = 152.729, used time = 22.94s
+ >> Train perplexity = 110.626
+ >> Valid perplexity = 124.163
+Epoch 6/12:
+ >> Learning rate = 0.50000
+ >> Train progress  9.6%: perplexity =  97.077, loss = 140.326, used time =  2.34s
+ >> Train progress 19.3%: perplexity = 104.469, loss = 143.229, used time =  4.63s
+ >> Train progress 29.0%: perplexity = 102.416, loss = 143.185, used time =  6.92s
+ >> Train progress 38.7%: perplexity = 101.757, loss = 134.427, used time =  9.20s
+ >> Train progress 48.4%: perplexity = 101.966, loss = 137.905, used time = 11.49s
+ >> Train progress 58.0%: perplexity =  99.646, loss = 131.258, used time = 13.77s
+ >> Train progress 67.7%: perplexity =  98.967, loss = 137.793, used time = 16.08s
+ >> Train progress 77.4%: perplexity =  99.142, loss = 143.774, used time = 18.36s
+ >> Train progress 87.1%: perplexity =  97.378, loss = 141.934, used time = 20.67s
+ >> Train progress 96.8%: perplexity =  95.762, loss = 147.352, used time = 22.96s
+ >> Train perplexity = 96.109
+ >> Valid perplexity = 114.248
+Epoch 7/12:
+ >> Learning rate = 0.25000
+ >> Train progress  9.6%: perplexity =  87.029, loss = 136.544, used time =  2.33s
+ >> Train progress 19.3%: perplexity =  94.421, loss = 140.548, used time =  4.62s
+ >> Train progress 29.0%: perplexity =  92.848, loss = 140.146, used time =  6.91s
+ >> Train progress 38.7%: perplexity =  92.442, loss = 130.949, used time =  9.19s
+ >> Train progress 48.4%: perplexity =  92.799, loss = 133.009, used time = 11.48s
+ >> Train progress 58.0%: perplexity =  90.695, loss = 127.893, used time = 13.77s
+ >> Train progress 67.7%: perplexity =  90.060, loss = 136.876, used time = 16.05s
+ >> Train progress 77.4%: perplexity =  90.270, loss = 140.237, used time = 18.33s
+ >> Train progress 87.1%: perplexity =  88.657, loss = 138.479, used time = 20.61s
+ >> Train progress 96.8%: perplexity =  87.111, loss = 141.666, used time = 22.90s
+ >> Train perplexity = 87.424
+ >> Valid perplexity = 109.680
+Epoch 8/12:
+ >> Learning rate = 0.12500
+ >> Train progress  9.6%: perplexity =  82.265, loss = 136.065, used time =  2.34s
+ >> Train progress 19.3%: perplexity =  89.669, loss = 140.107, used time =  4.62s
+ >> Train progress 29.0%: perplexity =  88.075, loss = 138.344, used time =  6.92s
+ >> Train progress 38.7%: perplexity =  87.738, loss = 130.327, used time =  9.21s
+ >> Train progress 48.4%: perplexity =  88.072, loss = 132.881, used time = 11.49s
+ >> Train progress 58.0%: perplexity =  86.113, loss = 127.223, used time = 13.78s
+ >> Train progress 67.7%: perplexity =  85.565, loss = 134.927, used time = 16.07s
+ >> Train progress 77.4%: perplexity =  85.736, loss = 139.248, used time = 18.35s
+ >> Train progress 87.1%: perplexity =  84.153, loss = 138.717, used time = 20.64s
+ >> Train progress 96.8%: perplexity =  82.677, loss = 141.738, used time = 22.92s
+ >> Train perplexity = 82.977
+ >> Valid perplexity = 107.932
+Epoch 9/12:
+ >> Learning rate = 0.06250
+ >> Train progress  9.6%: perplexity =  80.029, loss = 134.876, used time =  2.33s
+ >> Train progress 19.3%: perplexity =  87.195, loss = 139.049, used time =  4.62s
+ >> Train progress 29.0%: perplexity =  85.704, loss = 137.094, used time =  6.92s
+ >> Train progress 38.7%: perplexity =  85.443, loss = 129.264, used time =  9.20s
+ >> Train progress 48.4%: perplexity =  85.802, loss = 131.151, used time = 11.49s
+ >> Train progress 58.0%: perplexity =  83.924, loss = 126.246, used time = 13.79s
+ >> Train progress 67.7%: perplexity =  83.406, loss = 133.842, used time = 16.08s
+ >> Train progress 77.4%: perplexity =  83.571, loss = 138.402, used time = 18.36s
+ >> Train progress 87.1%: perplexity =  82.018, loss = 136.139, used time = 20.66s
+ >> Train progress 96.8%: perplexity =  80.556, loss = 140.558, used time = 22.94s
+ >> Train perplexity = 80.841
+ >> Valid perplexity = 106.873
+Epoch 10/12:
+ >> Learning rate = 0.03125
+ >> Train progress  9.6%: perplexity =  78.868, loss = 133.212, used time =  2.33s
+ >> Train progress 19.3%: perplexity =  85.752, loss = 139.150, used time =  4.61s
+ >> Train progress 29.0%: perplexity =  84.368, loss = 137.578, used time =  6.90s
+ >> Train progress 38.7%: perplexity =  84.078, loss = 128.141, used time =  9.18s
+ >> Train progress 48.4%: perplexity =  84.444, loss = 132.339, used time = 11.47s
+ >> Train progress 58.0%: perplexity =  82.606, loss = 125.925, used time = 13.75s
+ >> Train progress 67.7%: perplexity =  82.072, loss = 134.038, used time = 16.04s
+ >> Train progress 77.4%: perplexity =  82.289, loss = 138.823, used time = 18.33s
+ >> Train progress 87.1%: perplexity =  80.808, loss = 135.733, used time = 20.62s
+ >> Train progress 96.8%: perplexity =  79.377, loss = 139.613, used time = 22.90s
+ >> Train perplexity = 79.644
+ >> Valid perplexity = 106.369
+Epoch 11/12:
+ >> Learning rate = 0.01562
+ >> Train progress  9.6%: perplexity =  77.875, loss = 133.852, used time =  2.34s
+ >> Train progress 19.3%: perplexity =  84.922, loss = 138.046, used time =  4.63s
+ >> Train progress 29.0%: perplexity =  83.536, loss = 137.575, used time =  6.91s
+ >> Train progress 38.7%: perplexity =  83.277, loss = 128.777, used time =  9.20s
+ >> Train progress 48.4%: perplexity =  83.701, loss = 130.538, used time = 11.48s
+ >> Train progress 58.0%: perplexity =  81.907, loss = 124.528, used time = 13.77s
+ >> Train progress 67.7%: perplexity =  81.391, loss = 132.445, used time = 16.06s
+ >> Train progress 77.4%: perplexity =  81.567, loss = 138.763, used time = 18.37s
+ >> Train progress 87.1%: perplexity =  80.084, loss = 135.341, used time = 20.65s
+ >> Train progress 96.8%: perplexity =  78.681, loss = 139.721, used time = 22.94s
+ >> Train perplexity = 78.980
+ >> Valid perplexity = 106.051
+Model saved in models/lstm.ckpt.
+[W 02:21:14.292 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[I 02:21:14.307 NotebookApp] JupyterLab alpha preview extension loaded from /home/wyk/Anaconda/lib/python3.6/site-packages/jupyterlab
+JupyterLab v0.27.0
+Known labextensions:
+[I 02:21:14.308 NotebookApp] Running the core application with no additional extensions or settings
+[I 02:21:14.309 NotebookApp] Serving notebooks from local directory: /home/wyk/Documents/homework/language-model
+[I 02:21:14.309 NotebookApp] 0 active kernels 
+[I 02:21:14.309 NotebookApp] The Jupyter Notebook is running at: http://[all ip addresses on your system]:8889/
+[I 02:21:14.310 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 02:21:26.254 NotebookApp] 302 GET / (166.111.138.88) 1.40ms
+[I 02:21:26.334 NotebookApp] 302 GET /tree? (166.111.138.88) 1.82ms
+[W 02:21:47.245 NotebookApp] 401 POST /login?next=%2Ftree%3F (166.111.138.88) 2.99ms referer=http://166.111.138.92:8889/login?next=%2Ftree%3F
+[I 02:21:48.719 NotebookApp] 302 POST /login?next=%2Ftree%3F (166.111.138.88) 2.18ms
+[I 02:23:16.997 NotebookApp] Saving file at /main.py
+[I 02:23:42.767 NotebookApp] Saving file at /main.py
+[I 02:24:05.067 NotebookApp] Saving file at /lstm.py
+[I 02:24:08.267 NotebookApp] Saving file at /lstm.py
+[I 02:25:47.356 NotebookApp] Saving file at /lstm.py
+[I 02:26:07.366 NotebookApp] Saving file at /main.py
+[I 02:27:54.930 NotebookApp] Saving file at /config.py
+[I 02:29:59.905 NotebookApp] Saving file at /lstm.py
+[I 02:30:09.955 NotebookApp] Saving file at /lstm.py
+[I 02:30:14.715 NotebookApp] Saving file at /main.py
+[I 02:31:18.385 NotebookApp] Saving file at /config.py
+[I 02:31:37.483 NotebookApp] Saving file at /main.py
+[I 02:35:07.795 NotebookApp] Saving file at /main.py
+[I 02:35:11.146 NotebookApp] Saving file at /main.py
+[I 02:35:17.564 NotebookApp] Saving file at /main.py
+[I 02:35:19.332 NotebookApp] Saving file at /main.py
+[I 02:39:13.379 NotebookApp] Saving file at /lstm.py
+[I 02:40:30.406 NotebookApp] Saving file at /main.py
+[I 02:47:39.100 NotebookApp] Saving file at /lstm.py
+[I 02:47:42.773 NotebookApp] Saving file at /lstm.py
+[I 02:47:57.085 NotebookApp] Saving file at /lstm.py
+[I 02:48:52.450 NotebookApp] Saving file at /lstm.py
+[I 02:49:05.367 NotebookApp] Saving file at /config.py
+[I 02:51:41.614 NotebookApp] Saving file at /config.py
+[I 02:52:59.049 NotebookApp] Saving file at /lstm.py
+[I 02:53:19.570 NotebookApp] Saving file at /lstm.py
+[I 02:53:33.099 NotebookApp] Saving file at /config.py
+[I 02:57:48.586 NotebookApp] Saving file at /lstm.py
+[I 02:58:08.142 NotebookApp] Saving file at /main.py
+[I 02:58:15.157 NotebookApp] Saving file at /main.py
+[I 02:58:37.954 NotebookApp] Saving file at /reader.py
+[I 03:00:46.786 NotebookApp] Saving file at /lstm.py
+[I 03:01:48.398 NotebookApp] Saving file at /main.py
+[I 03:05:50.856 NotebookApp] Saving file at /lstm.py
+[I 03:07:24.667 NotebookApp] Saving file at /main.py
+[I 03:07:27.575 NotebookApp] Saving file at /main.py
+[I 03:29:04.821 NotebookApp] Saving file at /main.py
+[I 03:29:30.140 NotebookApp] Saving file at /lstm.py
+[I 03:30:16.118 NotebookApp] Saving file at /lstm.py
+[I 03:30:42.560 NotebookApp] Saving file at /lstm.py
+[I 03:30:52.283 NotebookApp] Saving file at /main.py
+[I 03:31:10.430 NotebookApp] Saving file at /config.py
+[I 03:32:37.484 NotebookApp] Saving file at /lstm.py
+[I 03:33:25.662 NotebookApp] Saving file at /main.py
+[I 03:37:24.979 NotebookApp] Saving file at /lstm.py
+[I 03:38:01.148 NotebookApp] Saving file at /lstm.py
+[I 03:39:27.274 NotebookApp] Saving file at /main.py
+[I 03:39:32.077 NotebookApp] Saving file at /lstm.py
+[I 03:39:37.205 NotebookApp] Saving file at /lstm.py
+[I 03:39:47.594 NotebookApp] Saving file at /lstm.py
+[I 03:40:29.800 NotebookApp] Saving file at /lstm.py
+[I 03:43:05.926 NotebookApp] Saving file at /lstm.py
+[I 03:43:59.558 NotebookApp] Saving file at /main.py
+[I 03:46:03.756 NotebookApp] Saving file at /lstm.py
+[I 03:46:16.200 NotebookApp] Saving file at /main.py
+[I 03:46:47.670 NotebookApp] Saving file at /main.py
+[I 03:46:58.104 NotebookApp] Saving file at /main.py
+[I 03:47:13.294 NotebookApp] Saving file at /lstm.py
+[I 03:47:36.679 NotebookApp] Saving file at /main.py
+[I 03:47:42.589 NotebookApp] Saving file at /main.py
+[I 03:49:58.748 NotebookApp] Saving file at /lstm.py
+[I 03:50:40.896 NotebookApp] Saving file at /lstm.py
+[I 03:51:33.986 NotebookApp] Saving file at /lstm.py
+[I 03:51:47.471 NotebookApp] Saving file at /lstm.py
+[I 03:52:04.830 NotebookApp] Saving file at /lstm.py
+[I 03:52:10.431 NotebookApp] Saving file at /lstm.py
+[I 03:52:17.146 NotebookApp] Saving file at /lstm.py
+[I 03:52:25.067 NotebookApp] Saving file at /lstm.py
+[I 03:52:34.777 NotebookApp] Saving file at /lstm.py
+[I 03:52:38.776 NotebookApp] Saving file at /lstm.py
+[I 03:52:54.466 NotebookApp] Saving file at /lstm.py
+[I 03:53:01.555 NotebookApp] Saving file at /lstm.py
+[I 03:53:16.187 NotebookApp] Saving file at /lstm.py
+[I 03:53:39.791 NotebookApp] Saving file at /lstm.py
+[I 03:53:56.875 NotebookApp] Saving file at /main.py
+[I 03:55:06.075 NotebookApp] Saving file at /lstm.py
+[I 03:55:43.295 NotebookApp] Saving file at /main.py
+[I 03:56:09.655 NotebookApp] Saving file at /lstm.py
+[I 03:56:21.883 NotebookApp] Saving file at /lstm.py
+[I 03:56:41.220 NotebookApp] Saving file at /lstm.py
+[I 03:57:22.329 NotebookApp] Saving file at /lstm.py
+[I 04:00:16.309 NotebookApp] Saving file at /main.py
+[I 04:02:21.334 NotebookApp] Saving file at /lstm.py
+[I 04:02:33.423 NotebookApp] Saving file at /lstm.py
+[I 04:02:44.013 NotebookApp] Saving file at /lstm.py
+[I 04:02:47.154 NotebookApp] Saving file at /lstm.py
+[I 04:02:50.418 NotebookApp] Saving file at /lstm.py
+[I 04:03:32.598 NotebookApp] Saving file at /lstm.py
+[I 04:03:42.494 NotebookApp] Saving file at /main.py
+[I 04:07:43.749 NotebookApp] Saving file at /lstm.py
+[I 04:08:09.214 NotebookApp] Saving file at /main.py
+[I 04:08:24.859 NotebookApp] Saving file at /lstm.py
+[I 04:08:35.979 NotebookApp] Saving file at /lstm.py
+[I 04:08:42.864 NotebookApp] Saving file at /main.py
+[I 04:08:48.784 NotebookApp] Saving file at /main.py
+[I 04:08:51.448 NotebookApp] Saving file at /main.py
+[I 04:08:58.394 NotebookApp] Saving file at /main.py
+[I 04:09:05.929 NotebookApp] Saving file at /main.py
+[I 04:09:18.755 NotebookApp] Saving file at /main.py
+[I 04:09:41.049 NotebookApp] Saving file at /main.py
+[I 04:10:07.674 NotebookApp] Saving file at /main.py
+[I 04:10:48.468 NotebookApp] Saving file at /lstm.py
+[I 04:12:51.529 NotebookApp] Saving file at /lstm.py
+[I 04:22:36.496 NotebookApp] Saving file at /lstm.py
+[I 04:23:12.721 NotebookApp] Saving file at /lstm.py
+[I 04:25:06.234 NotebookApp] Saving file at /lstm.py
+[I 04:27:11.957 NotebookApp] Saving file at /lstm.py
+[I 04:27:23.723 NotebookApp] Saving file at /main.py
+[I 04:29:18.601 NotebookApp] Saving file at /config.py
+[I 04:29:23.710 NotebookApp] Saving file at /reader.py
+[I 04:36:55.336 NotebookApp] Saving file at /config.py
+[I 04:36:58.972 NotebookApp] Saving file at /config.py
+[I 04:37:01.516 NotebookApp] Saving file at /config.py
+[I 04:39:06.082 NotebookApp] Saving file at /config.py
+[I 04:43:08.138 NotebookApp] Saving file at /config.py
+[I 04:43:24.352 NotebookApp] Saving file at /lstm.py
+[I 04:43:27.482 NotebookApp] Saving file at /lstm.py
+[I 04:43:34.898 NotebookApp] Saving file at /lstm.py
+[I 04:43:59.689 NotebookApp] Saving file at /main.py
+2018-05-29 05:05:22.342777: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2018-05-29 05:05:22.342804: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2018-05-29 05:05:22.342808: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2018-05-29 05:05:22.342811: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2018-05-29 05:05:22.342815: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2018-05-29 05:05:22.429101: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:893] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-05-29 05:05:22.429488: I tensorflow/core/common_runtime/gpu/gpu_device.cc:955] Found device 0 with properties: 
+name: GeForce GTX 1080
+major: 6 minor: 1 memoryClockRate (GHz) 1.7335
+pciBusID 0000:01:00.0
+Total memory: 7.93GiB
+Free memory: 7.34GiB
+2018-05-29 05:05:22.429499: I tensorflow/core/common_runtime/gpu/gpu_device.cc:976] DMA: 0 
+2018-05-29 05:05:22.429505: I tensorflow/core/common_runtime/gpu/gpu_device.cc:986] 0:   Y 
+2018-05-29 05:05:22.429511: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1045] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1080, pci bus id: 0000:01:00.0)
+Loading raw data.
+Building model and start training:
+Epoch 0/20:
+ >> Learning rate = 1.00000
+ >> Train progress  0.0%: perplexity = 10093.341, loss = 184.393, used time =  0.31s
+ >> Train progress  5.2%: perplexity = 1324.439, loss = 131.777, used time =  1.62s
+ >> Train progress 10.3%: perplexity = 940.248, loss = 129.810, used time =  2.94s
+ >> Train progress 15.5%: perplexity = 805.300, loss = 127.712, used time =  4.23s
+ >> Train progress 20.7%: perplexity = 716.779, loss = 123.484, used time =  5.54s
+ >> Train progress 25.8%: perplexity = 642.948, loss = 118.860, used time =  6.85s
+ >> Train progress 31.0%: perplexity = 591.768, loss = 122.767, used time =  8.16s
+ >> Train progress 36.2%: perplexity = 549.509, loss = 116.473, used time =  9.46s
+ >> Train progress 41.3%: perplexity = 517.174, loss = 111.076, used time = 10.80s
+ >> Train progress 46.5%: perplexity = 491.338, loss = 114.179, used time = 12.11s
+ >> Train progress 51.7%: perplexity = 465.319, loss = 113.276, used time = 13.45s
+ >> Train progress 56.8%: perplexity = 442.013, loss = 110.470, used time = 14.78s
+ >> Train progress 62.0%: perplexity = 421.107, loss = 110.933, used time = 16.10s
+ >> Train progress 67.2%: perplexity = 404.387, loss = 114.657, used time = 17.44s
+ >> Train progress 72.3%: perplexity = 391.608, loss = 107.296, used time = 18.77s
+ >> Train progress 77.5%: perplexity = 379.067, loss = 112.071, used time = 20.14s
+ >> Train progress 82.7%: perplexity = 364.899, loss = 106.688, used time = 21.49s
+ >> Train progress 87.8%: perplexity = 354.889, loss = 98.776, used time = 22.84s
+ >> Train progress 93.0%: perplexity = 342.853, loss = 105.446, used time = 24.19s
+ >> Train progress 98.1%: perplexity = 334.239, loss = 104.576, used time = 25.58s
+ >> Train perplexity = 332.148
+ >> Valid perplexity = 201.881
+Epoch 1/20:
+ >> Learning rate = 1.00000
+ >> Train progress  0.0%: perplexity = 371.006, loss = 118.324, used time =  0.06s
+ >> Train progress  5.2%: perplexity = 207.806, loss = 99.832, used time =  1.39s
+ >> Train progress 10.3%: perplexity = 193.491, loss = 109.487, used time =  2.70s
+ >> Train progress 15.5%: perplexity = 200.806, loss = 110.559, used time =  4.04s
+ >> Train progress 20.7%: perplexity = 202.266, loss = 104.608, used time =  5.38s
+ >> Train progress 25.8%: perplexity = 198.126, loss = 103.731, used time =  6.71s
+ >> Train progress 31.0%: perplexity = 196.693, loss = 106.679, used time =  8.04s
+ >> Train progress 36.2%: perplexity = 194.632, loss = 104.072, used time =  9.40s
+ >> Train progress 41.3%: perplexity = 194.681, loss = 99.459, used time = 10.75s
+ >> Train progress 46.5%: perplexity = 194.040, loss = 104.281, used time = 12.08s
+ >> Train progress 51.7%: perplexity = 191.819, loss = 105.649, used time = 13.41s
+ >> Train progress 56.8%: perplexity = 189.374, loss = 101.791, used time = 14.74s
+ >> Train progress 62.0%: perplexity = 186.789, loss = 101.938, used time = 16.07s
+ >> Train progress 67.2%: perplexity = 185.320, loss = 108.398, used time = 17.40s
+ >> Train progress 72.3%: perplexity = 184.818, loss = 100.155, used time = 18.73s
+ >> Train progress 77.5%: perplexity = 183.981, loss = 105.567, used time = 20.06s
+ >> Train progress 82.7%: perplexity = 180.901, loss = 98.632, used time = 21.40s
+ >> Train progress 87.8%: perplexity = 179.776, loss = 92.097, used time = 22.74s
+ >> Train progress 93.0%: perplexity = 177.234, loss = 101.027, used time = 24.06s
+ >> Train progress 98.1%: perplexity = 176.228, loss = 99.743, used time = 25.39s
+ >> Train perplexity = 176.312
+ >> Valid perplexity = 160.252
+Epoch 2/20:
+ >> Learning rate = 1.00000
+ >> Train progress  0.0%: perplexity = 277.659, loss = 112.528, used time =  0.06s
+ >> Train progress  5.2%: perplexity = 156.221, loss = 94.094, used time =  1.39s
+ >> Train progress 10.3%: perplexity = 145.911, loss = 105.088, used time =  2.73s
+ >> Train progress 15.5%: perplexity = 153.652, loss = 105.811, used time =  4.06s
+ >> Train progress 20.7%: perplexity = 156.570, loss = 98.819, used time =  5.41s
+ >> Train progress 25.8%: perplexity = 153.736, loss = 99.580, used time =  6.73s
+ >> Train progress 31.0%: perplexity = 153.324, loss = 101.455, used time =  8.06s
+ >> Train progress 36.2%: perplexity = 152.220, loss = 101.050, used time =  9.39s
+ >> Train progress 41.3%: perplexity = 153.303, loss = 96.163, used time = 10.72s
+ >> Train progress 46.5%: perplexity = 153.398, loss = 101.611, used time = 12.05s
+ >> Train progress 51.7%: perplexity = 152.225, loss = 101.248, used time = 13.39s
+ >> Train progress 56.8%: perplexity = 150.928, loss = 97.301, used time = 14.71s
+ >> Train progress 62.0%: perplexity = 149.512, loss = 98.981, used time = 16.08s
+ >> Train progress 67.2%: perplexity = 148.967, loss = 105.336, used time = 17.42s
+ >> Train progress 72.3%: perplexity = 149.259, loss = 97.471, used time = 18.75s
+ >> Train progress 77.5%: perplexity = 149.238, loss = 102.980, used time = 20.09s
+ >> Train progress 82.7%: perplexity = 147.085, loss = 95.850, used time = 21.42s
+ >> Train progress 87.8%: perplexity = 146.549, loss = 88.151, used time = 22.79s
+ >> Train progress 93.0%: perplexity = 144.907, loss = 98.039, used time = 24.13s
+ >> Train progress 98.1%: perplexity = 144.552, loss = 97.686, used time = 25.48s
+ >> Train perplexity = 144.795
+ >> Valid perplexity = 145.738
+Epoch 3/20:
+ >> Learning rate = 1.00000
+ >> Train progress  0.0%: perplexity = 256.880, loss = 110.972, used time =  0.06s
+ >> Train progress  5.2%: perplexity = 135.143, loss = 92.334, used time =  1.39s
+ >> Train progress 10.3%: perplexity = 126.011, loss = 101.527, used time =  2.75s
+ >> Train progress 15.5%: perplexity = 133.869, loss = 103.134, used time =  4.07s
+ >> Train progress 20.7%: perplexity = 136.741, loss = 96.918, used time =  5.40s
+ >> Train progress 25.8%: perplexity = 134.595, loss = 97.447, used time =  6.73s
+ >> Train progress 31.0%: perplexity = 134.357, loss = 97.626, used time =  8.11s
+ >> Train progress 36.2%: perplexity = 133.542, loss = 97.980, used time =  9.42s
+ >> Train progress 41.3%: perplexity = 134.781, loss = 92.636, used time = 10.79s
+ >> Train progress 46.5%: perplexity = 135.190, loss = 99.618, used time = 12.14s
+ >> Train progress 51.7%: perplexity = 134.287, loss = 100.176, used time = 13.51s
+ >> Train progress 56.8%: perplexity = 133.207, loss = 95.324, used time = 14.86s
+ >> Train progress 62.0%: perplexity = 132.111, loss = 97.218, used time = 16.19s
+ >> Train progress 67.2%: perplexity = 131.938, loss = 105.302, used time = 17.52s
+ >> Train progress 72.3%: perplexity = 132.420, loss = 94.943, used time = 18.90s
+ >> Train progress 77.5%: perplexity = 132.632, loss = 103.072, used time = 20.23s
+ >> Train progress 82.7%: perplexity = 130.873, loss = 92.978, used time = 21.57s
+ >> Train progress 87.8%: perplexity = 130.581, loss = 86.715, used time = 22.94s
+ >> Train progress 93.0%: perplexity = 129.262, loss = 96.063, used time = 24.29s
+ >> Train progress 98.1%: perplexity = 129.139, loss = 95.781, used time = 25.64s
+ >> Train perplexity = 129.409
+ >> Valid perplexity = 136.555
+Epoch 4/20:
+ >> Learning rate = 1.00000
+ >> Train progress  0.0%: perplexity = 237.215, loss = 109.379, used time =  0.06s
+ >> Train progress  5.2%: perplexity = 123.460, loss = 89.147, used time =  1.42s
+ >> Train progress 10.3%: perplexity = 115.142, loss = 98.805, used time =  2.76s
+ >> Train progress 15.5%: perplexity = 122.876, loss = 101.503, used time =  4.07s
+ >> Train progress 20.7%: perplexity = 125.920, loss = 94.609, used time =  5.41s
+ >> Train progress 25.8%: perplexity = 123.616, loss = 95.951, used time =  6.73s
+ >> Train progress 31.0%: perplexity = 123.378, loss = 96.432, used time =  8.05s
+ >> Train progress 36.2%: perplexity = 122.788, loss = 97.242, used time =  9.37s
+ >> Train progress 41.3%: perplexity = 124.004, loss = 91.265, used time = 10.73s
+ >> Train progress 46.5%: perplexity = 124.473, loss = 98.599, used time = 12.06s
+ >> Train progress 51.7%: perplexity = 123.775, loss = 98.563, used time = 13.39s
+ >> Train progress 56.8%: perplexity = 122.913, loss = 91.195, used time = 14.72s
+ >> Train progress 62.0%: perplexity = 121.945, loss = 95.432, used time = 16.05s
+ >> Train progress 67.2%: perplexity = 121.824, loss = 101.638, used time = 17.40s[I 05:07:43.006 NotebookApp] Saving file at /lstm.py
+[I 05:07:58.046 NotebookApp] Saving file at /lstm.py
+[I 05:08:05.880 NotebookApp] Saving file at /lstm.py
+[I 05:08:25.306 NotebookApp] Saving file at /lstm.py
+
+ >> Train progress 72.3%: perplexity = 122.370, loss = 94.270, used time = 18.75s
+ >> Train progress 77.5%: perplexity = 122.696, loss = 100.695, used time = 20.11s
+ >> Train progress 82.7%: perplexity = 121.127, loss = 93.496, used time = 21.51s
+ >> Train progress 87.8%: perplexity = 120.898, loss = 85.564, used time = 22.84s
+ >> Train progress 93.0%: perplexity = 119.783, loss = 93.884, used time = 24.19s
+ >> Train progress 98.1%: perplexity = 119.758, loss = 94.586, used time = 25.52s
+ >> Train perplexity = 120.018
+ >> Valid perplexity = 132.102
+Epoch 5/20:
+ >> Learning rate = 1.00000
+ >> Train progress  0.0%: perplexity = 234.353, loss = 109.137, used time =  0.06s
+ >> Train progress  5.2%: perplexity = 116.009, loss = 88.090, used time =  1.39s
+ >> Train progress 10.3%: perplexity = 108.277, loss = 98.320, used time =  2.73s
+ >> Train progress 15.5%: perplexity = 115.449, loss = 99.698, used time =  4.06s
+ >> Train progress 20.7%: perplexity = 118.456, loss = 93.687, used time =  5.41s
+ >> Train progress 25.8%: perplexity = 116.324, loss = 93.561, used time =  6.74s
+ >> Train progress 31.0%: perplexity = 116.173, loss = 95.415, used time =  8.10s
+ >> Train progress 36.2%: perplexity = 115.484, loss = 96.264, used time =  9.48s
+ >> Train progress 41.3%: perplexity = 116.671, loss = 89.915, used time = 10.82s
+ >> Train progress 46.5%: perplexity = 117.125, loss = 97.382, used time = 12.14s
+ >> Train progress 51.7%: perplexity = 116.492, loss = 97.218, used time = 13.49s
+ >> Train progress 56.8%: perplexity = 115.668, loss = 92.545, used time = 14.84s
+ >> Train progress 62.0%: perplexity = 114.899, loss = 94.062, used time = 16.19s
+ >> Train progress 67.2%: perplexity = 114.844, loss = 101.484, used time = 17.53s
+ >> Train progress 72.3%: perplexity = 115.416, loss = 92.019, used time = 18.88s
+ >> Train progress 77.5%: perplexity = 115.744, loss = 98.702, used time = 20.25s
+ >> Train progress 82.7%: perplexity = 114.294, loss = 91.041, used time = 21.62s
+ >> Train progress 87.8%: perplexity = 114.095, loss = 84.244, used time = 22.94s
+ >> Train progress 93.0%: perplexity = 113.084, loss = 94.101, used time = 24.35s
+ >> Train progress 98.1%: perplexity = 113.121, loss = 93.711, used time = 25.70s
+ >> Train perplexity = 113.378
+ >> Valid perplexity = 128.643
+Epoch 6/20:
+ >> Learning rate = 0.70000
+ >> Train progress  0.0%: perplexity = 242.653, loss = 109.833, used time =  0.06s
+ >> Train progress  5.2%: perplexity = 108.392, loss = 87.169, used time =  1.39s
+ >> Train progress 10.3%: perplexity = 100.935, loss = 96.083, used time =  2.74s
+ >> Train progress 15.5%: perplexity = 106.975, loss = 98.142, used time =  4.07s
+ >> Train progress 20.7%: perplexity = 109.412, loss = 91.669, used time =  5.41s
+ >> Train progress 25.8%: perplexity = 106.945, loss = 93.220, used time =  6.77s
+ >> Train progress 31.0%: perplexity = 106.579, loss = 92.328, used time =  8.10s
+ >> Train progress 36.2%: perplexity = 105.763, loss = 92.596, used time =  9.43s
+ >> Train progress 41.3%: perplexity = 106.509, loss = 87.198, used time = 10.79s
+ >> Train progress 46.5%: perplexity = 106.734, loss = 94.142, used time = 12.16s
+ >> Train progress 51.7%: perplexity = 105.873, loss = 94.653, used time = 13.53s
+ >> Train progress 56.8%: perplexity = 104.907, loss = 88.579, used time = 14.88s
+ >> Train progress 62.0%: perplexity = 103.958, loss = 93.377, used time = 16.20s
+ >> Train progress 67.2%: perplexity = 103.791, loss = 99.198, used time = 17.56s
+ >> Train progress 72.3%: perplexity = 104.137, loss = 90.544, used time = 18.90s
+ >> Train progress 77.5%: perplexity = 104.261, loss = 97.472, used time = 20.29s
+ >> Train progress 82.7%: perplexity = 102.800, loss = 89.580, used time = 21.65s
+ >> Train progress 87.8%: perplexity = 102.431, loss = 84.064, used time = 22.99s
+ >> Train progress 93.0%: perplexity = 101.368, loss = 90.212, used time = 24.40s
+ >> Train progress 98.1%: perplexity = 101.271, loss = 91.254, used time = 25.78s
+ >> Train perplexity = 101.459
+ >> Valid perplexity = 118.902
+Epoch 7/20:
+ >> Learning rate = 0.49000
+ >> Train progress  0.0%: perplexity = 189.634, loss = 104.902, used time =  0.06s
+ >> Train progress  5.2%: perplexity =  98.140, loss = 85.683, used time =  1.42s
+ >> Train progress 10.3%: perplexity =  91.356, loss = 93.364, used time =  2.78s
+ >> Train progress 15.5%: perplexity =  96.839, loss = 95.873, used time =  4.14s
+ >> Train progress 20.7%: perplexity =  99.049, loss = 89.374, used time =  5.45s
+ >> Train progress 25.8%: perplexity =  96.745, loss = 90.821, used time =  6.80s
+ >> Train progress 31.0%: perplexity =  96.403, loss = 91.459, used time =  8.15s
+ >> Train progress 36.2%: perplexity =  95.803, loss = 91.967, used time =  9.51s
+ >> Train progress 41.3%: perplexity =  96.477, loss = 85.564, used time = 10.84s
+ >> Train progress 46.5%: perplexity =  96.757, loss = 92.100, used time = 12.17s
+ >> Train progress 51.7%: perplexity =  96.019, loss = 93.627, used time = 13.49s
+ >> Train progress 56.8%: perplexity =  95.188, loss = 86.783, used time = 14.81s
+ >> Train progress 62.0%: perplexity =  94.366, loss = 90.263, used time = 16.14s
+ >> Train progress 67.2%: perplexity =  94.230, loss = 98.004, used time = 17.47s
+ >> Train progress 72.3%: perplexity =  94.588, loss = 87.203, used time = 18.81s
+ >> Train progress 77.5%: perplexity =  94.711, loss = 95.539, used time = 20.14s
+ >> Train progress 82.7%: perplexity =  93.360, loss = 86.221, used time = 21.47s
+ >> Train progress 87.8%: perplexity =  93.025, loss = 81.166, used time = 22.81s
+ >> Train progress 93.0%: perplexity =  92.029, loss = 91.301, used time = 24.14s
+ >> Train progress 98.1%: perplexity =  91.925, loss = 88.952, used time = 25.51s
+ >> Train perplexity = 92.085
+ >> Valid perplexity = 114.760
+Epoch 8/20:
+ >> Learning rate = 0.34300
+ >> Train progress  0.0%: perplexity = 187.294, loss = 104.654, used time =  0.07s
+ >> Train progress  5.2%: perplexity =  90.726, loss = 83.524, used time =  1.39s
+ >> Train progress 10.3%: perplexity =  84.582, loss = 91.508, used time =  2.74s
+ >> Train progress 15.5%: perplexity =  89.928, loss = 94.887, used time =  4.07s
+ >> Train progress 20.7%: perplexity =  92.007, loss = 87.855, used time =  5.41s
+ >> Train progress 25.8%: perplexity =  89.889, loss = 90.176, used time =  6.78s
+ >> Train progress 31.0%: perplexity =  89.567, loss = 90.077, used time =  8.13s
+ >> Train progress 36.2%: perplexity =  88.912, loss = 88.772, used time =  9.47s
+ >> Train progress 41.3%: perplexity =  89.617, loss = 84.545, used time = 10.85s
+ >> Train progress 46.5%: perplexity =  89.918, loss = 90.822, used time = 12.20s
+ >> Train progress 51.7%: perplexity =  89.292, loss = 93.202, used time = 13.54s
+ >> Train progress 56.8%: perplexity =  88.459, loss = 87.327, used time = 14.87s
+ >> Train progress 62.0%: perplexity =  87.727, loss = 89.294, used time = 16.19s
+ >> Train progress 67.2%: perplexity =  87.553, loss = 97.261, used time = 17.57s
+ >> Train progress 72.3%: perplexity =  87.886, loss = 87.347, used time = 18.93s
+ >> Train progress 77.5%: perplexity =  88.024, loss = 93.422, used time = 20.31s
+ >> Train progress 82.7%: perplexity =  86.749, loss = 85.548, used time = 21.68s
+ >> Train progress 87.8%: perplexity =  86.427, loss = 78.398, used time = 23.02s
+ >> Train progress 93.0%: perplexity =  85.531, loss = 89.506, used time = 24.37s
+ >> Train progress 98.1%: perplexity =  85.411, loss = 87.190, used time = 25.73s
+ >> Train perplexity = 85.548
+ >> Valid perplexity = 110.225
+Epoch 9/20:
+ >> Learning rate = 0.24010
+ >> Train progress  0.0%: perplexity = 176.373, loss = 103.452, used time =  0.05s
+ >> Train progress  5.2%: perplexity =  85.737, loss = 82.887, used time =  1.39s
+ >> Train progress 10.3%: perplexity =  79.892, loss = 91.886, used time =  2.75s
+ >> Train progress 15.5%: perplexity =  85.089, loss = 93.209, used time =  4.12s
+ >> Train progress 20.7%: perplexity =  87.109, loss = 87.852, used time =  5.46s
+ >> Train progress 25.8%: perplexity =  84.998, loss = 87.753, used time =  6.78s
+ >> Train progress 31.0%: perplexity =  84.757, loss = 91.646, used time =  8.12s
+ >> Train progress 36.2%: perplexity =  84.128, loss = 89.557, used time =  9.45s[I 05:09:46.627 NotebookApp] Saving file at /lstm.py
+
+ >> Train progress 41.3%: perplexity =  84.769, loss = 82.710, used time = 10.77s
+ >> Train progress 46.5%: perplexity =  85.049, loss = 91.075, used time = 12.12s
+ >> Train progress 51.7%: perplexity =  84.458, loss = 91.510, used time = 13.51s
+ >> Train progress 56.8%: perplexity =  83.721, loss = 84.813, used time = 14.88s
+ >> Train progress 62.0%: perplexity =  83.061, loss = 87.981, used time = 16.23s
+ >> Train progress 67.2%: perplexity =  82.940, loss = 96.523, used time = 17.56s
+ >> Train progress 72.3%: perplexity =  83.270, loss = 87.715, used time = 18.93s
+ >> Train progress 77.5%: perplexity =  83.381, loss = 91.340, used time = 20.28s
+ >> Train progress 82.7%: perplexity =  82.183, loss = 83.972, used time = 21.67s
+ >> Train progress 87.8%: perplexity =  81.875, loss = 78.880, used time = 23.01s
+ >> Train progress 93.0%: perplexity =  80.997, loss = 86.722, used time = 24.36s
+ >> Train progress 98.1%: perplexity =  80.898, loss = 86.042, used time = 25.71s
+ >> Train perplexity = 81.045
+ >> Valid perplexity = 107.920
+Epoch 10/20:
+ >> Learning rate = 0.16807
+ >> Train progress  0.0%: perplexity = 180.396, loss = 103.903, used time =  0.06s
+ >> Train progress  5.2%: perplexity =  81.947, loss = 83.187, used time =  1.41s
+ >> Train progress 10.3%: perplexity =  76.626, loss = 93.130, used time =  2.76s
+ >> Train progress 15.5%: perplexity =  81.680, loss = 92.821, used time =  4.09s
+ >> Train progress 20.7%: perplexity =  83.718, loss = 86.466, used time =  5.43s
+ >> Train progress 25.8%: perplexity =  81.583, loss = 87.567, used time =  6.75s
+ >> Train progress 31.0%: perplexity =  81.358, loss = 87.887, used time =  8.11s
+ >> Train progress 36.2%: perplexity =  80.766, loss = 88.051, used time =  9.44s
+ >> Train progress 41.3%: perplexity =  81.427, loss = 84.389, used time = 10.80s
+ >> Train progress 46.5%: perplexity =  81.759, loss = 90.557, used time = 12.15s
+ >> Train progress 51.7%: perplexity =  81.218, loss = 91.138, used time = 13.48s
+ >> Train progress 56.8%: perplexity =  80.505, loss = 83.932, used time = 14.81s
+ >> Train progress 62.0%: perplexity =  79.838, loss = 86.414, used time = 16.16s
+ >> Train progress 67.2%: perplexity =  79.735, loss = 94.925, used time = 17.50s
+ >> Train progress 72.3%: perplexity =  80.041, loss = 83.976, used time = 18.83s
+ >> Train progress 77.5%: perplexity =  80.101, loss = 92.099, used time = 20.16s
+ >> Train progress 82.7%: perplexity =  78.960, loss = 83.042, used time = 21.52s
+ >> Train progress 87.8%: perplexity =  78.658, loss = 77.082, used time = 22.90s
+ >> Train progress 93.0%: perplexity =  77.832, loss = 87.436, used time = 24.23s
+ >> Train progress 98.1%: perplexity =  77.728, loss = 84.691, used time = 25.57s
+ >> Train perplexity = 77.885
+ >> Valid perplexity = 106.381
+Epoch 11/20:
+ >> Learning rate = 0.11765
+ >> Train progress  0.0%: perplexity = 159.721, loss = 101.469, used time =  0.06s
+ >> Train progress  5.2%: perplexity =  79.952, loss = 81.857, used time =  1.43s
+ >> Train progress 10.3%: perplexity =  74.290, loss = 91.292, used time =  2.75s
+ >> Train progress 15.5%: perplexity =  79.456, loss = 90.935, used time =  4.09s
+ >> Train progress 20.7%: perplexity =  81.446, loss = 87.174, used time =  5.44s
+ >> Train progress 25.8%: perplexity =  79.436, loss = 85.861, used time =  6.79s
+ >> Train progress 31.0%: perplexity =  79.126, loss = 87.722, used time =  8.11s
+ >> Train progress 36.2%: perplexity =  78.667, loss = 87.363, used time =  9.48s
+ >> Train progress 41.3%: perplexity =  79.267, loss = 81.723, used time = 10.81s
+ >> Train progress 46.5%: perplexity =  79.581, loss = 89.903, used time = 12.14s
+ >> Train progress 51.7%: perplexity =  79.003, loss = 90.253, used time = 13.49s
+ >> Train progress 56.8%: perplexity =  78.308, loss = 83.532, used time = 14.85s
+ >> Train progress 62.0%: perplexity =  77.655, loss = 85.615, used time = 16.19s
+ >> Train progress 67.2%: perplexity =  77.553, loss = 95.370, used time = 17.55s
+ >> Train progress 72.3%: perplexity =  77.871, loss = 84.026, used time = 18.94s
+ >> Train progress 77.5%: perplexity =  77.975, loss = 91.525, used time = 20.27s
+ >> Train progress 82.7%: perplexity =  76.850, loss = 81.615, used time = 21.63s
+ >> Train progress 87.8%: perplexity =  76.544, loss = 76.909, used time = 22.96s
+ >> Train progress 93.0%: perplexity =  75.711, loss = 86.783, used time = 24.31s
+ >> Train progress 98.1%: perplexity =  75.587, loss = 84.158, used time = 25.65s
+ >> Train perplexity = 75.716
+ >> Valid perplexity = 105.284
+Epoch 12/20:
+ >> Learning rate = 0.08235
+ >> Train progress  0.0%: perplexity = 160.619, loss = 101.581, used time =  0.06s
+ >> Train progress  5.2%: perplexity =  78.250, loss = 81.312, used time =  1.40s
+ >> Train progress 10.3%: perplexity =  72.974, loss = 90.241, used time =  2.74s
+ >> Train progress 15.5%: perplexity =  77.924, loss = 92.326, used time =  4.14s
+ >> Train progress 20.7%: perplexity =  79.806, loss = 85.382, used time =  5.49s
+ >> Train progress 25.8%: perplexity =  77.876, loss = 85.977, used time =  6.88s
+ >> Train progress 31.0%: perplexity =  77.641, loss = 87.018, used time =  8.20s
+ >> Train progress 36.2%: perplexity =  77.101, loss = 86.537, used time =  9.55s
+ >> Train progress 41.3%: perplexity =  77.728, loss = 81.438, used time = 10.95s
+ >> Train progress 46.5%: perplexity =  78.100, loss = 90.311, used time = 12.33s
+ >> Train progress 51.7%: perplexity =  77.547, loss = 89.872, used time = 13.71s
+ >> Train progress 56.8%: perplexity =  76.831, loss = 83.031, used time = 15.08s
+ >> Train progress 62.0%: perplexity =  76.187, loss = 86.181, used time = 16.44s
+ >> Train progress 67.2%: perplexity =  76.078, loss = 95.127, used time = 17.80s
+ >> Train progress 72.3%: perplexity =  76.369, loss = 83.816, used time = 19.15s
+ >> Train progress 77.5%: perplexity =  76.469, loss = 91.375, used time = 20.48s
+ >> Train progress 82.7%: perplexity =  75.374, loss = 81.813, used time = 21.83s
+ >> Train progress 87.8%: perplexity =  75.087, loss = 77.097, used time = 23.18s
+ >> Train progress 93.0%: perplexity =  74.267, loss = 86.249, used time = 24.54s
+ >> Train progress 98.1%: perplexity =  74.164, loss = 84.838, used time = 25.87s
+ >> Train perplexity = 74.299
+ >> Valid perplexity = 104.466
+Epoch 13/20:
+ >> Learning rate = 0.05765
+ >> Train progress  0.0%: perplexity = 171.895, loss = 102.938, used time =  0.06s
+ >> Train progress  5.2%: perplexity =  77.184, loss = 81.286, used time =  1.41s
+ >> Train progress 10.3%: perplexity =  71.813, loss = 89.045, used time =  2.73s
+ >> Train progress 15.5%: perplexity =  76.598, loss = 92.047, used time =  4.07s
+ >> Train progress 20.7%: perplexity =  78.453, loss = 84.504, used time =  5.42s
+ >> Train progress 25.8%: perplexity =  76.706, loss = 85.805, used time =  6.77s
+ >> Train progress 31.0%: perplexity =  76.530, loss = 88.121, used time =  8.11s
+ >> Train progress 36.2%: perplexity =  75.906, loss = 87.173, used time =  9.45s
+ >> Train progress 41.3%: perplexity =  76.465, loss = 80.869, used time = 10.80s
+ >> Train progress 46.5%: perplexity =  76.864, loss = 89.090, used time = 12.13s
+ >> Train progress 51.7%: perplexity =  76.345, loss = 89.981, used time = 13.49s
+ >> Train progress 56.8%: perplexity =  75.671, loss = 82.751, used time = 14.84s
+ >> Train progress 62.0%: perplexity =  75.037, loss = 85.465, used time = 16.17s
+ >> Train progress 67.2%: perplexity =  74.923, loss = 93.212, used time = 17.53s
+ >> Train progress 72.3%: perplexity =  75.249, loss = 84.564, used time = 18.87s
+ >> Train progress 77.5%: perplexity =  75.336, loss = 92.192, used time = 20.23s
+ >> Train progress 82.7%: perplexity =  74.248, loss = 81.292, used time = 21.58s
+ >> Train progress 87.8%: perplexity =  73.956, loss = 76.461, used time = 22.92s
+ >> Train progress 93.0%: perplexity =  73.150, loss = 84.921, used time = 24.29s
+ >> Train progress 98.1%: perplexity =  73.035, loss = 83.289, used time = 25.62s
+ >> Train perplexity = 73.171
+ >> Valid perplexity = 104.038
+Epoch 14/20:
+ >> Learning rate = 0.04035
+ >> Train progress  0.0%: perplexity = 167.414, loss = 102.409, used time =  0.05s
+ >> Train progress  5.2%: perplexity =  76.507, loss = 80.878, used time =  1.41s
+ >> Train progress 10.3%: perplexity =  71.350, loss = 89.992, used time =  2.74s
+ >> Train progress 15.5%: perplexity =  76.105, loss = 91.582, used time =  4.06s
+ >> Train progress 20.7%: perplexity =  77.922, loss = 86.197, used time =  5.42s
+ >> Train progress 25.8%: perplexity =  76.042, loss = 85.001, used time =  6.78s
+ >> Train progress 31.0%: perplexity =  75.845, loss = 87.236, used time =  8.10s
+ >> Train progress 36.2%: perplexity =  75.310, loss = 87.108, used time =  9.44s
+ >> Train progress 41.3%: perplexity =  75.890, loss = 80.558, used time = 10.80s
+ >> Train progress 46.5%: perplexity =  76.229, loss = 88.061, used time = 12.19s
+ >> Train progress 51.7%: perplexity =  75.732, loss = 90.170, used time = 13.58s
+ >> Train progress 56.8%: perplexity =  75.060, loss = 82.044, used time = 14.91s
+ >> Train progress 62.0%: perplexity =  74.407, loss = 85.196, used time = 16.27s
+ >> Train progress 67.2%: perplexity =  74.293, loss = 94.049, used time = 17.61s
+ >> Train progress 72.3%: perplexity =  74.589, loss = 83.735, used time = 18.98s
+ >> Train progress 77.5%: perplexity =  74.657, loss = 91.379, used time = 20.32s
+ >> Train progress 82.7%: perplexity =  73.601, loss = 82.368, used time = 21.66s
+ >> Train progress 87.8%: perplexity =  73.341, loss = 76.370, used time = 23.03s
+ >> Train progress 93.0%: perplexity =  72.534, loss = 85.915, used time = 24.43s
+ >> Train progress 98.1%: perplexity =  72.427, loss = 83.665, used time = 25.79s
+ >> Train perplexity = 72.556
+ >> Valid perplexity = 103.732
+Epoch 15/20:
+ >> Learning rate = 0.02825
+ >> Train progress  0.0%: perplexity = 161.383, loss = 101.676, used time =  0.06s
+ >> Train progress  5.2%: perplexity =  75.347, loss = 80.528, used time =  1.38s
+ >> Train progress 10.3%: perplexity =  70.384, loss = 88.255, used time =  2.74s
+ >> Train progress 15.5%: perplexity =  75.091, loss = 91.203, used time =  4.07s
+ >> Train progress 20.7%: perplexity =  77.093, loss = 85.595, used time =  5.42s
+ >> Train progress 25.8%: perplexity =  75.207, loss = 85.666, used time =  6.75s
+ >> Train progress 31.0%: perplexity =  75.091, loss = 87.319, used time =  8.10s
+ >> Train progress 36.2%: perplexity =  74.658, loss = 85.881, used time =  9.45s
+ >> Train progress 41.3%: perplexity =  75.247, loss = 80.652, used time = 10.77s
+ >> Train progress 46.5%: perplexity =  75.565, loss = 89.236, used time = 12.15s
+ >> Train progress 51.7%: perplexity =  75.062, loss = 90.417, used time = 13.49s
+ >> Train progress 56.8%: perplexity =  74.375, loss = 81.890, used time = 14.86s
+ >> Train progress 62.0%: perplexity =  73.764, loss = 85.620, used time = 16.19s
+ >> Train progress 67.2%: perplexity =  73.668, loss = 93.816, used time = 17.53s
+ >> Train progress 72.3%: perplexity =  73.961, loss = 84.034, used time = 18.93s
+ >> Train progress 77.5%: perplexity =  74.050, loss = 89.448, used time = 20.26s
+ >> Train progress 82.7%: perplexity =  72.979, loss = 81.772, used time = 21.59s
+ >> Train progress 87.8%: perplexity =  72.681, loss = 75.269, used time = 22.93s
+ >> Train progress 93.0%: perplexity =  71.881, loss = 84.970, used time = 24.30s
+ >> Train progress 98.1%: perplexity =  71.787, loss = 83.105, used time = 25.66s
+ >> Train perplexity = 71.925
+ >> Valid perplexity = 103.465
+Epoch 16/20:
+ >> Learning rate = 0.01977
+ >> Train progress  0.0%: perplexity = 166.567, loss = 102.308, used time =  0.06s
+ >> Train progress  5.2%: perplexity =  74.955, loss = 80.048, used time =  1.39s
+ >> Train progress 10.3%: perplexity =  70.193, loss = 89.309, used time =  2.71s
+ >> Train progress 15.5%: perplexity =  75.048, loss = 91.760, used time =  4.06s
+ >> Train progress 20.7%: perplexity =  76.954, loss = 85.973, used time =  5.42s
+ >> Train progress 25.8%: perplexity =  75.059, loss = 85.051, used time =  6.75s
+ >> Train progress 31.0%: perplexity =  74.792, loss = 86.802, used time =  8.10s
+ >> Train progress 36.2%: perplexity =  74.283, loss = 87.600, used time =  9.44s
+ >> Train progress 41.3%: perplexity =  74.835, loss = 79.903, used time = 10.78s
+ >> Train progress 46.5%: perplexity =  75.202, loss = 89.430, used time = 12.13s
+ >> Train progress 51.7%: perplexity =  74.720, loss = 89.257, used time = 13.47s
+ >> Train progress 56.8%: perplexity =  74.010, loss = 82.293, used time = 14.89s
+ >> Train progress 62.0%: perplexity =  73.427, loss = 85.840, used time = 16.24s
+ >> Train progress 67.2%: perplexity =  73.307, loss = 92.906, used time = 17.59s
+ >> Train progress 72.3%: perplexity =  73.654, loss = 82.464, used time = 18.95s
+ >> Train progress 77.5%: perplexity =  73.730, loss = 91.276, used time = 20.30s
+ >> Train progress 82.7%: perplexity =  72.693, loss = 81.493, used time = 21.66s
+ >> Train progress 87.8%: perplexity =  72.412, loss = 75.807, used time = 23.00s
+ >> Train progress 93.0%: perplexity =  71.626, loss = 84.967, used time = 24.38s
+ >> Train progress 98.1%: perplexity =  71.505, loss = 83.168, used time = 25.72s
+ >> Train perplexity = 71.632
+ >> Valid perplexity = 103.307
+Epoch 17/20:
+ >> Learning rate = 0.01384
+ >> Train progress  0.0%: perplexity = 154.402, loss = 100.791, used time =  0.06s
+ >> Train progress  5.2%: perplexity =  75.027, loss = 81.387, used time =  1.39s
+ >> Train progress 10.3%: perplexity =  70.029, loss = 88.899, used time =  2.75s
+ >> Train progress 15.5%: perplexity =  74.852, loss = 90.694, used time =  4.11s
+ >> Train progress 20.7%: perplexity =  76.667, loss = 84.003, used time =  5.45s
+ >> Train progress 25.8%: perplexity =  74.744, loss = 85.858, used time =  6.80s
+ >> Train progress 31.0%: perplexity =  74.573, loss = 86.040, used time =  8.16s
+ >> Train progress 36.2%: perplexity =  74.080, loss = 86.936, used time =  9.52s
+ >> Train progress 41.3%: perplexity =  74.697, loss = 80.836, used time = 10.86s
+ >> Train progress 46.5%: perplexity =  74.988, loss = 88.554, used time = 12.21s
+ >> Train progress 51.7%: perplexity =  74.478, loss = 90.012, used time = 13.56s
+ >> Train progress 56.8%: perplexity =  73.767, loss = 81.658, used time = 14.91s
+ >> Train progress 62.0%: perplexity =  73.164, loss = 86.163, used time = 16.27s
+ >> Train progress 67.2%: perplexity =  73.040, loss = 93.613, used time = 17.62s
+ >> Train progress 72.3%: perplexity =  73.341, loss = 83.291, used time = 18.96s
+ >> Train progress 77.5%: perplexity =  73.428, loss = 89.546, used time = 20.40s
+ >> Train progress 82.7%: perplexity =  72.361, loss = 78.584, used time = 21.83s
+ >> Train progress 87.8%: perplexity =  72.090, loss = 76.476, used time = 23.23s
+ >> Train progress 93.0%: perplexity =  71.285, loss = 85.312, used time = 24.58s
+ >> Train progress 98.1%: perplexity =  71.186, loss = 82.257, used time = 25.97s
+ >> Train perplexity = 71.317
+ >> Valid perplexity = 103.135
+Epoch 18/20:
+ >> Learning rate = 0.00969
+ >> Train progress  0.0%: perplexity = 163.050, loss = 101.881, used time =  0.05s
+ >> Train progress  5.2%: perplexity =  74.647, loss = 80.091, used time =  1.39s
+ >> Train progress 10.3%: perplexity =  69.534, loss = 90.720, used time =  2.74s
+ >> Train progress 15.5%: perplexity =  74.314, loss = 89.547, used time =  4.07s
+ >> Train progress 20.7%: perplexity =  76.350, loss = 85.398, used time =  5.42s
+ >> Train progress 25.8%: perplexity =  74.404, loss = 84.716, used time =  6.77s
+ >> Train progress 31.0%: perplexity =  74.185, loss = 86.680, used time =  8.12s
+ >> Train progress 36.2%: perplexity =  73.689, loss = 87.013, used time =  9.45s
+ >> Train progress 41.3%: perplexity =  74.306, loss = 80.471, used time = 10.80s
+ >> Train progress 46.5%: perplexity =  74.612, loss = 89.378, used time = 12.18s
+ >> Train progress 51.7%: perplexity =  74.128, loss = 89.995, used time = 13.54s
+ >> Train progress 56.8%: perplexity =  73.415, loss = 80.253, used time = 14.87s
+ >> Train progress 62.0%: perplexity =  72.793, loss = 84.645, used time = 16.21s
+ >> Train progress 67.2%: perplexity =  72.712, loss = 93.755, used time = 17.54s
+ >> Train progress 72.3%: perplexity =  73.016, loss = 83.436, used time = 18.91s
+ >> Train progress 77.5%: perplexity =  73.114, loss = 91.359, used time = 20.27s
+ >> Train progress 82.7%: perplexity =  72.071, loss = 80.818, used time = 21.63s
+ >> Train progress 87.8%: perplexity =  71.808, loss = 76.379, used time = 22.98s
+ >> Train progress 93.0%: perplexity =  71.022, loss = 86.205, used time = 24.36s
+ >> Train progress 98.1%: perplexity =  70.933, loss = 82.949, used time = 25.77s
+ >> Train perplexity = 71.067
+ >> Valid perplexity = 103.025
+Epoch 19/20:
+ >> Learning rate = 0.00678
+ >> Train progress  0.0%: perplexity = 169.110, loss = 102.611, used time =  0.06s
+ >> Train progress  5.2%: perplexity =  74.888, loss = 79.368, used time =  1.40s
+ >> Train progress 10.3%: perplexity =  69.608, loss = 90.088, used time =  2.73s
+ >> Train progress 15.5%: perplexity =  74.449, loss = 91.259, used time =  4.08s
+ >> Train progress 20.7%: perplexity =  76.337, loss = 85.153, used time =  5.45s
+ >> Train progress 25.8%: perplexity =  74.470, loss = 85.191, used time =  6.79s
+ >> Train progress 31.0%: perplexity =  74.235, loss = 86.768, used time =  8.14s
+ >> Train progress 36.2%: perplexity =  73.668, loss = 86.781, used time =  9.49s
+ >> Train progress 41.3%: perplexity =  74.234, loss = 80.193, used time = 10.82s
+ >> Train progress 46.5%: perplexity =  74.549, loss = 88.210, used time = 12.16s
+ >> Train progress 51.7%: perplexity =  74.036, loss = 89.628, used time = 13.48s
+ >> Train progress 56.8%: perplexity =  73.382, loss = 81.783, used time = 14.85s
+ >> Train progress 62.0%: perplexity =  72.757, loss = 85.033, used time = 16.20s
+ >> Train progress 67.2%: perplexity =  72.661, loss = 92.327, used time = 17.58s
+ >> Train progress 72.3%: perplexity =  72.977, loss = 83.808, used time = 18.91s
+ >> Train progress 77.5%: perplexity =  73.056, loss = 89.382, used time = 20.27s
+ >> Train progress 82.7%: perplexity =  72.012, loss = 80.260, used time = 21.62s
+ >> Train progress 87.8%: perplexity =  71.759, loss = 77.583, used time = 22.96s
+ >> Train progress 93.0%: perplexity =  70.955, loss = 84.518, used time = 24.31s
+ >> Train progress 98.1%: perplexity =  70.844, loss = 82.306, used time = 25.65s
+ >> Train perplexity = 70.978
+ >> Valid perplexity = 102.977
+Model saved in models/lstm.ckpt.
+[I 05:33:21.273 NotebookApp] Saving file at /main.py
+[I 05:33:28.479 NotebookApp] Saving file at /main.py
+[I 05:46:47.594 NotebookApp] Creating new notebook in 
+[I 05:46:47.614 NotebookApp] Writing notebook-signing key to /home/wyk/.local/share/jupyter/notebook_secret
+[I 05:46:50.611 NotebookApp] Kernel started: e4173bcd-5bd6-447a-97b4-07158368c5ea
+[I 05:46:51.260 NotebookApp] Adapting to protocol v5.1 for kernel e4173bcd-5bd6-447a-97b4-07158368c5ea
+[I 05:47:12.889 NotebookApp] Kernel shutdown: e4173bcd-5bd6-447a-97b4-07158368c5ea
+[W 05:47:12.890 NotebookApp] delete /Untitled.ipynb
+[I 08:15:16.533 NotebookApp] 302 GET / (166.111.138.88) 0.85ms
+[I 08:15:16.612 NotebookApp] 302 GET /tree? (166.111.138.88) 1.24ms
+[I 08:15:18.775 NotebookApp] 302 POST /login?next=%2Ftree%3F (166.111.138.88) 2.14ms
+[I 08:15:24.538 NotebookApp] Creating new notebook in 
+[I 08:15:27.429 NotebookApp] Kernel started: 0be85c42-9cc6-47b9-bd6b-41ec699b68d9
+[I 08:15:28.113 NotebookApp] Adapting to protocol v5.1 for kernel 0be85c42-9cc6-47b9-bd6b-41ec699b68d9
+[I 08:16:36.414 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:16:39.713 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:17:00.854 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:17:07.775 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:17:26.935 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:17:33.776 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:18:13.819 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:18:28.779 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:18:44.458 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:19:07.739 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:19:12.029 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:19:43.740 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:19:57.183 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:19:58.541 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:20:03.575 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:24:28.643 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:25:27.590 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:25:56.710 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:27:27.559 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:27:48.191 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:27:56.961 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:27:59.001 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:27:59.711 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:28:12.672 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:29:27.791 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:29:47.527 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:31:28.201 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:33:27.648 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:34:46.778 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:35:28.203 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:37:27.665 NotebookApp] Saving file at /Untitled.ipynb
+[W 08:41:28.115 NotebookApp] WebSocket ping timeout after 118010 ms.
+[I 08:42:46.398 NotebookApp] Adapting to protocol v5.1 for kernel 0be85c42-9cc6-47b9-bd6b-41ec699b68d9
+[I 08:42:53.953 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:42:55.757 NotebookApp] Adapting to protocol v5.1 for kernel 0be85c42-9cc6-47b9-bd6b-41ec699b68d9
+[I 08:43:05.251 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:44:32.419 NotebookApp] Saving file at /Untitled.ipynb
+[I 08:47:44.518 NotebookApp] Kernel started: 3de53d57-67a0-48d8-bf3a-237ce6eb68eb
+[I 08:47:45.125 NotebookApp] Adapting to protocol v5.1 for kernel 3de53d57-67a0-48d8-bf3a-237ce6eb68eb
+[I 08:47:55.200 NotebookApp] Saving file at /plot_perp.ipynb
+[I 08:48:02.957 NotebookApp] Kernel shutdown: 3de53d57-67a0-48d8-bf3a-237ce6eb68eb

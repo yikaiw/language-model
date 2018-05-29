@@ -3,7 +3,7 @@ gen/
 build/
 #data/
 checkpoints/
-logs/
+#logs/
 tfrecord/
 __pycache__/
 

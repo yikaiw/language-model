@@ -4,60 +4,54 @@ import tensorflow as tf
 import time
 from config import Config
 import reader
-from lstm import LSTM
+from lstm import LSTM, current_time
 
 FLAGS = tf.flags.FLAGS
 tf.flags.DEFINE_boolean('testing', False, 'If is testing, default False.')
 
 save_path = os.path.join('models', 'lstm.ckpt')
+load_path = os.path.join('saved_model', 'lstm.ckpt')
 data_path = os.path.join('data', 'ptb')
-global_step = {'train': 0, 'valid': 0, 'test': 0}
+global_step = 0
 
 
-def run_epoch(sess, model, data, stage='train', epoch=None):
+def run_epoch(sess, model, data, stage='train'):
     global global_step
     start_time = time.time()
 
     epoch_size = (len(data) // model.batch_size - 1) // model.step_size
-    total_loss, iters = 0, 0
+    loss_list = []
     state = sess.run(model.initial_state)
     ptb_iterator = reader.ptb_iterator(data, model.batch_size, model.step_size)
 
-    for step, (x, y) in enumerate(ptb_iterator):
-        # x, y: [batch_size, step_size]
-        print(x.shape)
-        loss, state, _, summary = sess.run(
-            [model.loss, model.final_state, model.opt, model.summary_op],
+    for step, (x, y) in enumerate(ptb_iterator):  # x, y: [batch_size, step_size]
+        loss, state, _, summary_loss = sess.run(
+            [model.loss, model.final_state, model.opt, model.summary_loss],
             feed_dict={model.input_data: x, model.targets: y, model.initial_state: state})
-        # loss, state, _ = sess.run(
-        #     [model.loss, model.final_state, model.opt],
-        #     feed_dict={model.input_data: x, model.targets: y, model.initial_state: state})
-        total_loss += loss
-        iters += model.step_size
-        perplexity = np.exp(total_loss / iters)
-
-        # global_step[stage] += 1
-        # model.loss_writer.add_summary(summary, global_step[stage])
+        loss_list.append(loss)
+        perplexity = np.exp(np.mean(loss_list) / model.step_size)
+        
+        if stage == 'train':
+            summary_perplexity = sess.run(model.summary_perplexity, {model.perplexity: perplexity})
+            global_step += 1
+            model.loss_writer.add_summary(summary_loss, global_step)
+            model.perplexity_writer.add_summary(summary_perplexity, global_step)
 
         progress = step / epoch_size * 100
-        if stage == 'train' and (step + 1) % 150 == 0:
-            print(' >> Train progress %4.1f%%: perplexity = %7.3f, loss = %7.3f, used time = %.2fs'
+        if stage == 'train' and step % 120 == 0:
+            print(' >> Train progress %4.1f%%: perplexity = %7.3f, loss = %4.3f, used time = %5.2fs'
                  % (progress, perplexity, loss, time.time() - start_time))
         elif stage == 'test':
             print('\rProgress = %.1f%%' % progress, end='')
-    
-    # if stage != 'test':
-    #     tf.summary.scalar('%s_perplexity' % stage, perplexity)
-    #     summary = sess.run(model.summary_op)
-    #     model.perplexity_writer.add_summary(summary, epoch)
+
     return perplexity
 
 
 def main(_):
     if not FLAGS.testing:
+        global epoch_perplexity_writer
         train_data, valid_data = reader.ptb_raw_data(data_path)
         config = Config()
-
         with tf.Graph().as_default(), tf.Session() as sess:
             print('Building model and start training:')
             initializer = tf.random_uniform_initializer(-config.init_scale, config.init_scale)
@@ -75,12 +69,12 @@ def main(_):
                 print('Epoch %d/%d:' % (epoch, config.epoch_num))
                 print(' >> Learning rate = %.5f' % sess.run(train_model.lr))
 
-                train_perplexity = run_epoch(sess, train_model, train_data, stage='train', epoch=epoch)
+                train_perplexity = run_epoch(sess, train_model, train_data, stage='train')
                 print(' >> Train perplexity = %.3f' % train_perplexity)
 
-                valid_perplexity = run_epoch(sess, valid_model, valid_data, stage='valid', epoch=epoch)
+                valid_perplexity = run_epoch(sess, valid_model, valid_data, stage='valid')
                 print(' >> Valid perplexity = %.3f' % valid_perplexity)
-
+                    
             saver.save(sess, save_path)
             print('Model saved in %s.' % save_path)
 
@@ -93,7 +87,7 @@ def main(_):
                 test_model = LSTM(sess, stage='test')
 
             saver = tf.train.Saver()
-            saver.restore(sess, save_path)
+            saver.restore(sess, load_path)
 
             test_perplexity = run_epoch(sess, test_model, test_data, stage='test')
             print('\nTest perplexity = %.3f' % test_perplexity)

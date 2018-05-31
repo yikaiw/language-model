@@ -9,7 +9,7 @@ Language model with LSTM.
 ## Description
 * The network designed in lstm.py has 2 layers of LSTM. Each LSTM layer is wrapped with a dropout layer. Each word is converted to an embedding with 200 dimensions, as well as the hidden dimensions of the LSTM. The embeddings also need to pass a dropout layer. 
 
-* The memory state of the network is initialized with zero. In order to ovoid gradient vanish, make the learning process tractable, I use an unrolled version of network which contains a fixed length(step_size) of words to feed in LSTM's inputs and targets. 
+* The memory state of the network is initialized with zero. In order to ovoid gradient vanish, make the learning process tractable, I use an unrolled version of network which contains a fixed length of words, i.e. step_size, to feed in LSTM's inputs and targets. 
 
 * The loss function of the network is negative log probability loss. Perplexity equals to average negative log probability loss square e.
 
